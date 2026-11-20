@@ -4,26 +4,21 @@
 
 const academicContainer = document.getElementById("academic-projects");
 const personalContainer = document.getElementById("personal-projects");
-
 const modal = document.getElementById("project-modal");
 const modalOverlay = document.getElementById("modal-overlay");
 const modalClose = document.getElementById("modal-close");
-
 const modalCategory = document.getElementById("modal-category");
 const modalTitle = document.getElementById("modal-title");
 const modalDescription = document.getElementById("modal-description");
 const modalTools = document.getElementById("modal-tools");
 const modalReadme = document.getElementById("modal-readme");
 const modalGithub = document.getElementById("modal-github");
-
 let activeReadmeRequest = 0;
 let previousFocusedElement = null;
-
 
 // ========================================
 // 2. HELPER FUNCTIONS
 // ========================================
-
 function escapeHTML(value) {
     return String(value ?? "").replace(/[&<>"']/g, character => {
         const entities = {
@@ -38,11 +33,9 @@ function escapeHTML(value) {
     });
 }
 
-
 // ========================================
 // 3. PROJECT VISUAL THEMES
 // ========================================
-
 const projectThemes = {
     "vietjet-analysis": {
         background: "#E8E5D9",
@@ -80,11 +73,9 @@ const projectThemes = {
     }
 };
 
-
 // ========================================
 // 4. CREATE PROJECT CARDS
 // ========================================
-
 function createProjectCard(project, index) {
     const toolsHTML = project.tools
         .map(tool => `
