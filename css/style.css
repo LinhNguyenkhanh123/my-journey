@@ -1,15 +1,35 @@
+
 /* ========================================
    1. DESIGN TOKENS
 ======================================== */
 
 :root {
-  --font-main: "Manrope", sans-serif;
-  --color-bg: #F5F3ED;
-  --color-text: #183C3B;
-  --color-muted: #657875;
-  --color-accent: #176F66;
-  --font-body: 17px;
-  --line-height-body: 1.7;
+    /* Typography */
+    --font-main: "Manrope", sans-serif;
+    --font-body: "Manrope", sans-serif;
+    --font-display: "Manrope", sans-serif;
+
+    /* Main colors */
+    --bg: #F5F3ED;
+    --text: #183C3B;
+    --text-secondary: #526B67;
+    --muted: #657875;
+
+    --teal: #176F66;
+    --teal-dark: #10574F;
+    --dark: #183C3B;
+
+    /* Surface colors */
+    --surface: #FFFFFF;
+    --surface-soft: #EAEFE9;
+    --border: #D5DED7;
+
+    /* Layout */
+    --container: 1200px;
+
+    /* Typography scale */
+    --font-size-body: 17px;
+    --line-height-body: 1.7;
 }
 
 /* ========================================
@@ -34,20 +54,6 @@ body {
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
 }
-body.modal-open {
-    overflow: hidden;
-}
-
-
-body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--font-body);
-    font-size: 17px;
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
-}
-
 body.modal-open {
     overflow: hidden;
 }
