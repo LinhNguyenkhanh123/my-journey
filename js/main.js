@@ -41,7 +41,12 @@ const projectThemes = {
         background: "#E8E5D9",
         label: "Financial Analysis"
     },
-
+    
+    "omo-simulation": {
+        background: "#E5E8D9",
+        label: "Banking Simulation"
+    },
+    
     "global-sales": {
         background: "#DCEAE4",
         label: "Data Analytics"
@@ -111,7 +116,17 @@ function createProjectCard(project, index) {
             <div class="project-info">
 
                 <p class="project-type">
-                    ${escapeHTML(project.category)}
+                    <span class="project-category">
+                        ${escapeHTML(project.category)}
+                    </span>
+                
+                    ${
+                        project.workType
+                            ? `<span class="project-work-type">
+                                ${escapeHTML(project.workType)}
+                               </span>`
+                            : ""
+                    }
                 </p>
 
                 <h3>${escapeHTML(project.title)}</h3>
