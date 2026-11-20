@@ -1109,10 +1109,13 @@ iframe {
     }
 }
 
-/* ABOUT ME - EDITORIAL LAYOUT */
+
+/* ABOUT ME - OVERVIEW & THREE HIGHLIGHT BOXES */
+
 .about-section .section-heading h2 {
     margin-bottom: 12px;
 }
+
 .about-subtitle {
     margin-top: 12px;
     color: var(--text-secondary);
@@ -1121,13 +1124,15 @@ iframe {
     letter-spacing: 0.2px;
 }
 
+/* OVERVIEW */
+
 .about-content {
     margin-top: 55px;
 }
 
 .about-overview {
-    max-width: 850px;
     margin-bottom: 35px;
+    max-width: 950px;
 }
 
 .about-overview h3 {
@@ -1136,15 +1141,17 @@ iframe {
     font-family: var(--font-display);
     font-size: 25px;
     font-weight: 750;
+    line-height: 1.4;
 }
 
 .about-overview > p {
+    margin-bottom: 0;
     color: var(--text-secondary);
     font-size: 16px;
     line-height: 1.8;
 }
 
-/* HIGHLIGHT CARDS */
+/* HIGHLIGHT BOXES */
 
 .about-highlights {
     display: grid;
@@ -1193,9 +1200,7 @@ iframe {
     line-height: 1.75;
 }
 
-.about-card-detail {
-    font-size: 14px !important;
-}
+/* FULL-WIDTH THIRD BOX */
 
 .about-card-wide {
     grid-column: 1 / -1;
