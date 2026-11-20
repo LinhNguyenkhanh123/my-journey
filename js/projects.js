@@ -13,7 +13,7 @@ const projects = [
     {
         id: "global-sales",
         title: "Global Sales Performance",
-        category: "Academic Project",
+        category: "Personal Project",
         type: "Data Analytics",
         description:
             "Analyzing global sales performance and developing interactive Power BI dashboards to generate business insights.",
@@ -57,7 +57,7 @@ const projects = [
     {
         id: "financial-analysis",
         title: "Financial Analysis",
-        category: "Academic Project",
+        category: "Personal Project",
         type: "Finance",
         description:
             "Applying financial analysis techniques to evaluate business performance and financial health.",
