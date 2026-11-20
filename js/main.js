@@ -1,7 +1,6 @@
 // ========================================
 // 1. DOM ELEMENTS
 // ========================================
-
 const academicContainer = document.getElementById("academic-projects");
 const personalContainer = document.getElementById("personal-projects");
 const modal = document.getElementById("project-modal");
