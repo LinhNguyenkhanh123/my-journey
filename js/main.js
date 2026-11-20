@@ -1,6 +1,6 @@
 
 // ========================================
-// 1. DOM Elements
+// 1. DOM ELEMENTS
 // ========================================
 
 const academicContainer = document.getElementById("academic-projects");
@@ -19,8 +19,10 @@ const modalGithub = document.getElementById("modal-github");
 
 
 // ========================================
-// 2. Helper: Escape HTML
+// 2. HELPER FUNCTIONS
 // ========================================
+
+// Escape HTML to prevent unsafe content in project cards
 
 function escapeHTML(value) {
     return String(value ?? "").replace(/[&<>"']/g, character => {
@@ -38,12 +40,17 @@ function escapeHTML(value) {
 
 
 // ========================================
-// 3. Render Project Cards
+// 3. CREATE PROJECT CARDS
 // ========================================
 
 function createProjectCard(project) {
-    const tools = project.tools
-        .map(tool => `<span class="tool-tag">${escapeHTML(tool)}</span>`)
+
+    const toolsHTML = project.tools
+        .map(tool => `
+            <span class="tool-tag">
+                ${escapeHTML(tool)}
+            </span>
+        `)
         .join("");
 
     return `
@@ -59,20 +66,25 @@ function createProjectCard(project) {
                     ${escapeHTML(project.category)}
                 </p>
 
-                <h3>${escapeHTML(project.title)}</h3>
+                <h3>
+                    ${escapeHTML(project.title)}
+                </h3>
 
                 <p>
                     ${escapeHTML(project.description)}
                 </p>
 
                 <div class="project-tools">
-                    ${tools}
+                    ${toolsHTML}
                 </div>
 
                 <button
+                    type="button"
                     class="project-link"
                     data-project-id="${escapeHTML(project.id)}">
+
                     View Project →
+
                 </button>
 
             </div>
@@ -82,7 +94,16 @@ function createProjectCard(project) {
 }
 
 
+// ========================================
+// 4. RENDER PROJECTS
+// ========================================
+
 function renderProjects() {
+
+    if (!academicContainer || !personalContainer) {
+        console.error("Project containers not found.");
+        return;
+    }
 
     const academicProjects = projects.filter(
         project => project.category === "Academic Project"
@@ -99,11 +120,85 @@ function renderProjects() {
     personalContainer.innerHTML = personalProjects
         .map(createProjectCard)
         .join("");
+
 }
 
 
 // ========================================
-// 4. Open Project Detail
+// 5. PREPARE README CONTENT
+// ========================================
+
+// Convert relative README image paths into raw GitHub URLs.
+// Convert relative README links into GitHub file links.
+
+function prepareReadmeHTML(html, project) {
+
+    const parser = new DOMParser();
+
+    const documentFragment = parser.parseFromString(
+        html,
+        "text/html"
+    );
+
+    const repositoryURL = new URL(project.github);
+
+    const owner = repositoryURL.pathname.split("/")[1];
+    const repo = repositoryURL.pathname.split("/")[2];
+
+    const rawBase =
+        `https://raw.githubusercontent.com/${owner}/${repo}/main/`;
+
+    const githubBase =
+        `https://github.com/${owner}/${repo}/blob/main/`;
+
+    // Fix image paths
+
+    documentFragment.querySelectorAll("img").forEach(image => {
+
+        const source = image.getAttribute("src");
+
+        if (
+            source &&
+            !source.startsWith("http") &&
+            !source.startsWith("//") &&
+            !source.startsWith("data:")
+        ) {
+            image.src = new URL(source, rawBase).href;
+        }
+
+        image.loading = "lazy";
+
+    });
+
+    // Fix relative links
+
+    documentFragment.querySelectorAll("a").forEach(link => {
+
+        const href = link.getAttribute("href");
+
+        if (
+            href &&
+            !href.startsWith("http") &&
+            !href.startsWith("//") &&
+            !href.startsWith("mailto:") &&
+            !href.startsWith("#")
+        ) {
+            link.href = new URL(href, githubBase).href;
+        }
+
+        if (link.href.startsWith("https://")) {
+            link.target = "_blank";
+            link.rel = "noopener noreferrer";
+        }
+
+    });
+
+    return documentFragment.body.innerHTML;
+}
+
+
+// ========================================
+// 6. OPEN PROJECT DETAILS
 // ========================================
 
 async function openProject(projectId) {
@@ -112,68 +207,109 @@ async function openProject(projectId) {
         item => item.id === projectId
     );
 
-    if (!project) return;
+    if (!project) {
+        console.error("Project not found:", projectId);
+        return;
+    }
+
+    // Display project information
 
     modalCategory.textContent = project.category;
     modalTitle.textContent = project.title;
     modalDescription.textContent = project.description;
 
+    // Display project tools
+
     modalTools.innerHTML = project.tools
-        .map(tool => `<span class="tool-tag">${escapeHTML(tool)}</span>`)
+        .map(tool => `
+            <span class="tool-tag">
+                ${escapeHTML(tool)}
+            </span>
+        `)
         .join("");
 
+    // Display external project link
+
     modalGithub.href = project.github;
+
+    // Open modal
 
     modal.classList.add("active");
     modal.setAttribute("aria-hidden", "false");
 
     document.body.style.overflow = "hidden";
 
+    modalClose.focus();
+
+    // Display loading message
+
     modalReadme.textContent = "Loading project documentation...";
 
+    // Handle projects without README
+
     if (!project.readme) {
+
         modalReadme.textContent =
-            "Detailed documentation is not available here. " +
-            "Please use the project link to view the supporting material.";
+            "Project documentation is not available here. " +
+            "Please use the project materials link above.";
 
         return;
     }
+
+    // Fetch README from GitHub
 
     try {
 
         const response = await fetch(project.readme);
 
         if (!response.ok) {
-            throw new Error("Could not load README.");
+            throw new Error(
+                `README request failed: ${response.status}`
+            );
         }
 
         const markdown = await response.text();
 
+        // Convert Markdown into HTML
+
         const html = marked.parse(markdown);
+
+        // Sanitize HTML
 
         const safeHTML = DOMPurify.sanitize(html, {
             USE_PROFILES: { html: true }
         });
 
-        modalReadme.innerHTML = safeHTML;
+        // Fix relative image and link paths
+
+        const preparedHTML = prepareReadmeHTML(
+            safeHTML,
+            project
+        );
+
+        modalReadme.innerHTML = preparedHTML;
 
     } catch (error) {
 
         console.error("README loading error:", error);
 
         modalReadme.textContent =
-            "Unable to load README. Please visit the GitHub repository instead.";
+            "Unable to load README. " +
+            "Please visit the project repository to view its documentation.";
+
     }
+
 }
 
 
 // ========================================
-// 5. Close Project Detail
+// 7. CLOSE PROJECT MODAL
 // ========================================
 
 function closeProject() {
 
     modal.classList.remove("active");
+
     modal.setAttribute("aria-hidden", "true");
 
     document.body.style.overflow = "";
@@ -182,31 +318,46 @@ function closeProject() {
 
 
 // ========================================
-// 6. Event Listeners
+// 8. EVENT LISTENERS
 // ========================================
+
+// Handle clicks on project buttons
 
 document.addEventListener("click", function(event) {
 
-    const projectButton = event.target.closest("[data-project-id]");
+    const projectButton = event.target.closest(
+        "[data-project-id]"
+    );
 
     if (projectButton) {
 
         const projectId = projectButton.dataset.projectId;
 
         openProject(projectId);
+
     }
 
 });
 
 
+// Close modal using close button
+
 modalClose.addEventListener("click", closeProject);
+
+
+// Close modal by clicking overlay
 
 modalOverlay.addEventListener("click", closeProject);
 
 
+// Close modal using Escape key
+
 document.addEventListener("keydown", function(event) {
 
-    if (event.key === "Escape" && modal.classList.contains("active")) {
+    if (
+        event.key === "Escape" &&
+        modal.classList.contains("active")
+    ) {
         closeProject();
     }
 
@@ -214,7 +365,7 @@ document.addEventListener("keydown", function(event) {
 
 
 // ========================================
-// 7. Initialize Website
+// 9. INITIALIZE WEBSITE
 // ========================================
 
 renderProjects();
