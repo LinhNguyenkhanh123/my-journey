@@ -46,37 +46,37 @@ function escapeHTML(value) {
 const projectThemes = {
     "vietjet-analysis": {
         background: "#E8E5D9",
-        label: "Financial Performance"
+        label: "Financial Analysis"
     },
 
     "global-sales": {
         background: "#DCEAE4",
-        label: "Business Intelligence"
+        label: "Data Analytics"
     },
 
     "financial-analysis": {
         background: "#E8E4D9",
-        label: "Financial Analytics"
+        label: "Data Analytics"
     },
 
     "vietdist": {
         background: "#DFE8E9",
-        label: "Data Engineering"
+        label: "Data Analytics"
     },
 
     "shopify-churn": {
         background: "#E4E8DC",
-        label: "Predictive Analytics"
+        label: "Data Analytics"
     },
 
     "marketing-sales-analysis": {
         background: "#E9E1D9",
-        label: "Marketing Analytics"
+        label: "Data Analytics"
     },
 
     "hr-workforce-database": {
         background: "#E0E5E8",
-        label: "Database Design"
+        label: "Data Analytics"
     }
 };
 
