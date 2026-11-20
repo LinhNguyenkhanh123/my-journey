@@ -21,7 +21,7 @@ const projects = [
             "A monetary policy simulation game focused on Open Market Operations (OMO), where players act as the State Bank of Vietnam's Open Market Operations Committee and make policy decisions based on economic conditions.",
         tools: ["Python", "Banking", "HTML", "Macroeconomics"],
         github: "https://github.com/FTU-Legacy-63/G03",
-        readme: https://github.com/FTU-Legacy-63/G03/blob/main/README.md
+        readme: "https://raw.githubusercontent.com/FTU-Legacy-63/G03/main/README.md"
     },
     {
         id: "global-sales",
