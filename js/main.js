@@ -17,12 +17,13 @@ const modalTools = document.getElementById("modal-tools");
 const modalReadme = document.getElementById("modal-readme");
 const modalGithub = document.getElementById("modal-github");
 
+let activeReadmeRequest = 0;
+let previousFocusedElement = null;
+
 
 // ========================================
 // 2. HELPER FUNCTIONS
 // ========================================
-
-// Escape HTML to prevent unsafe content in project cards
 
 function escapeHTML(value) {
     return String(value ?? "").replace(/[&<>"']/g, character => {
@@ -40,11 +41,52 @@ function escapeHTML(value) {
 
 
 // ========================================
-// 3. CREATE PROJECT CARDS
+// 3. PROJECT VISUAL THEMES
 // ========================================
 
-function createProjectCard(project) {
+const projectThemes = {
+    "vietjet-analysis": {
+        background: "#E8E5D9",
+        label: "Financial Performance"
+    },
 
+    "global-sales": {
+        background: "#DCEAE4",
+        label: "Business Intelligence"
+    },
+
+    "financial-analysis": {
+        background: "#E8E4D9",
+        label: "Financial Analytics"
+    },
+
+    "vietdist": {
+        background: "#DFE8E9",
+        label: "Data Engineering"
+    },
+
+    "shopify-churn": {
+        background: "#E4E8DC",
+        label: "Predictive Analytics"
+    },
+
+    "marketing-sales-analysis": {
+        background: "#E9E1D9",
+        label: "Marketing Analytics"
+    },
+
+    "hr-workforce-database": {
+        background: "#E0E5E8",
+        label: "Database Design"
+    }
+};
+
+
+// ========================================
+// 4. CREATE PROJECT CARDS
+// ========================================
+
+function createProjectCard(project, index) {
     const toolsHTML = project.tools
         .map(tool => `
             <span class="tool-tag">
@@ -53,11 +95,27 @@ function createProjectCard(project) {
         `)
         .join("");
 
+    const theme = projectThemes[project.id] || {
+        background: "#DCEAE4",
+        label: project.type
+    };
+
+    const projectNumber = String(index + 1).padStart(2, "0");
+
     return `
         <article class="project-card">
 
-            <div class="project-image">
-                ${escapeHTML(project.type)}
+            <div
+                class="project-visual"
+                style="--visual-bg: ${theme.background}"
+            >
+                <span class="project-visual-label">
+                    ${escapeHTML(theme.label)}
+                </span>
+
+                <span class="project-visual-number">
+                    ${projectNumber}
+                </span>
             </div>
 
             <div class="project-info">
@@ -66,9 +124,7 @@ function createProjectCard(project) {
                     ${escapeHTML(project.category)}
                 </p>
 
-                <h3>
-                    ${escapeHTML(project.title)}
-                </h3>
+                <h3>${escapeHTML(project.title)}</h3>
 
                 <p>
                     ${escapeHTML(project.description)}
@@ -81,25 +137,22 @@ function createProjectCard(project) {
                 <button
                     type="button"
                     class="project-link"
-                    data-project-id="${escapeHTML(project.id)}">
-
-                    View Project →
-
+                    data-project-id="${escapeHTML(project.id)}"
+                >
+                    Explore project <span>↗</span>
                 </button>
 
             </div>
-
         </article>
     `;
 }
 
 
 // ========================================
-// 4. RENDER PROJECTS
+// 5. RENDER PROJECTS
 // ========================================
 
 function renderProjects() {
-
     if (!academicContainer || !personalContainer) {
         console.error("Project containers not found.");
         return;
@@ -121,40 +174,61 @@ function renderProjects() {
         .map(createProjectCard)
         .join("");
 
+    // Update project counts automatically
+    const academicCount = document.querySelector(
+        ".project-group:first-of-type .group-heading span"
+    );
+
+    const personalCount = document.querySelector(
+        ".project-group:last-of-type .group-heading span"
+    );
+
+    if (academicCount) {
+        academicCount.textContent =
+            `${String(academicProjects.length).padStart(2, "0")} PROJECTS`;
+    }
+
+    if (personalCount) {
+        personalCount.textContent =
+            `${String(personalProjects.length).padStart(2, "0")} PROJECTS`;
+    }
 }
 
 
 // ========================================
-// 5. PREPARE README CONTENT
+// 6. PREPARE README CONTENT
 // ========================================
 
-// Convert relative README image paths into raw GitHub URLs.
-// Convert relative README links into GitHub file links.
-
 function prepareReadmeHTML(html, project) {
-
     const parser = new DOMParser();
 
-    const documentFragment = parser.parseFromString(
+    const parsedDocument = parser.parseFromString(
         html,
         "text/html"
     );
 
     const repositoryURL = new URL(project.github);
 
-    const owner = repositoryURL.pathname.split("/")[1];
-    const repo = repositoryURL.pathname.split("/")[2];
+    const pathParts = repositoryURL.pathname
+        .split("/")
+        .filter(Boolean);
+
+    const owner = pathParts[0];
+    const repo = pathParts[1];
+    const branch = project.branch || "main";
+
+    if (!owner || !repo) {
+        return parsedDocument.body.innerHTML;
+    }
 
     const rawBase =
-        `https://raw.githubusercontent.com/${owner}/${repo}/main/`;
+        `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/`;
 
     const githubBase =
-        `https://github.com/${owner}/${repo}/blob/main/`;
+        `https://github.com/${owner}/${repo}/blob/${branch}/`;
 
-    // Fix image paths
-
-    documentFragment.querySelectorAll("img").forEach(image => {
-
+    // Fix relative image paths
+    parsedDocument.querySelectorAll("img").forEach(image => {
         const source = image.getAttribute("src");
 
         if (
@@ -163,17 +237,18 @@ function prepareReadmeHTML(html, project) {
             !source.startsWith("//") &&
             !source.startsWith("data:")
         ) {
-            image.src = new URL(source, rawBase).href;
+            try {
+                image.src = new URL(source, rawBase).href;
+            } catch (error) {
+                console.warn("Invalid README image URL:", source);
+            }
         }
 
         image.loading = "lazy";
-
     });
 
     // Fix relative links
-
-    documentFragment.querySelectorAll("a").forEach(link => {
-
+    parsedDocument.querySelectorAll("a").forEach(link => {
         const href = link.getAttribute("href");
 
         if (
@@ -183,26 +258,28 @@ function prepareReadmeHTML(html, project) {
             !href.startsWith("mailto:") &&
             !href.startsWith("#")
         ) {
-            link.href = new URL(href, githubBase).href;
+            try {
+                link.href = new URL(href, githubBase).href;
+            } catch (error) {
+                console.warn("Invalid README link:", href);
+            }
         }
 
-        if (link.href.startsWith("https://")) {
+        if (link.protocol === "https:" || link.protocol === "http:") {
             link.target = "_blank";
             link.rel = "noopener noreferrer";
         }
-
     });
 
-    return documentFragment.body.innerHTML;
+    return parsedDocument.body.innerHTML;
 }
 
 
 // ========================================
-// 6. OPEN PROJECT DETAILS
+// 7. OPEN PROJECT DETAILS
 // ========================================
 
 async function openProject(projectId) {
-
     const project = projects.find(
         item => item.id === projectId
     );
@@ -212,13 +289,15 @@ async function openProject(projectId) {
         return;
     }
 
-    // Display project information
+    // Track the request to prevent old README responses
+    // from replacing the currently selected project.
+    const requestId = ++activeReadmeRequest;
+
+    previousFocusedElement = document.activeElement;
 
     modalCategory.textContent = project.category;
     modalTitle.textContent = project.title;
     modalDescription.textContent = project.description;
-
-    // Display project tools
 
     modalTools.innerHTML = project.tools
         .map(tool => `
@@ -228,27 +307,18 @@ async function openProject(projectId) {
         `)
         .join("");
 
-    // Display external project link
-
     modalGithub.href = project.github;
-
-    // Open modal
 
     modal.classList.add("active");
     modal.setAttribute("aria-hidden", "false");
 
-    document.body.style.overflow = "hidden";
+    document.body.classList.add("modal-open");
 
     modalClose.focus();
 
-    // Display loading message
-
     modalReadme.textContent = "Loading project documentation...";
 
-    // Handle projects without README
-
     if (!project.readme) {
-
         modalReadme.textContent =
             "Project documentation is not available here. " +
             "Please use the project materials link above.";
@@ -256,10 +326,7 @@ async function openProject(projectId) {
         return;
     }
 
-    // Fetch README from GitHub
-
     try {
-
         const response = await fetch(project.readme);
 
         if (!response.ok) {
@@ -270,102 +337,97 @@ async function openProject(projectId) {
 
         const markdown = await response.text();
 
-        // Convert Markdown into HTML
+        if (requestId !== activeReadmeRequest) {
+            return;
+        }
+
+        if (typeof marked === "undefined" ||
+            typeof DOMPurify === "undefined") {
+            throw new Error("Markdown libraries are unavailable.");
+        }
 
         const html = marked.parse(markdown);
-
-        // Sanitize HTML
 
         const safeHTML = DOMPurify.sanitize(html, {
             USE_PROFILES: { html: true }
         });
-
-        // Fix relative image and link paths
 
         const preparedHTML = prepareReadmeHTML(
             safeHTML,
             project
         );
 
-        modalReadme.innerHTML = preparedHTML;
+        if (requestId === activeReadmeRequest) {
+            modalReadme.innerHTML = preparedHTML;
+        }
 
     } catch (error) {
-
         console.error("README loading error:", error);
 
-        modalReadme.textContent =
-            "Unable to load README. " +
-            "Please visit the project repository to view its documentation.";
-
+        if (requestId === activeReadmeRequest) {
+            modalReadme.textContent =
+                "Unable to load README. " +
+                "Please visit the project repository to view its documentation.";
+        }
     }
-
 }
 
 
 // ========================================
-// 7. CLOSE PROJECT MODAL
+// 8. CLOSE PROJECT MODAL
 // ========================================
 
 function closeProject() {
+    if (!modal.classList.contains("active")) {
+        return;
+    }
+
+    // Invalidate pending README requests
+    activeReadmeRequest++;
 
     modal.classList.remove("active");
-
     modal.setAttribute("aria-hidden", "true");
 
-    document.body.style.overflow = "";
+    document.body.classList.remove("modal-open");
 
+    if (
+        previousFocusedElement &&
+        typeof previousFocusedElement.focus === "function"
+    ) {
+        previousFocusedElement.focus();
+    }
 }
 
 
 // ========================================
-// 8. EVENT LISTENERS
+// 9. EVENT LISTENERS
 // ========================================
 
-// Handle clicks on project buttons
-
 document.addEventListener("click", function(event) {
-
     const projectButton = event.target.closest(
         "[data-project-id]"
     );
 
     if (projectButton) {
-
-        const projectId = projectButton.dataset.projectId;
-
-        openProject(projectId);
-
+        openProject(projectButton.dataset.projectId);
     }
-
 });
 
-
-// Close modal using close button
-
 modalClose.addEventListener("click", closeProject);
-
-
-// Close modal by clicking overlay
-
 modalOverlay.addEventListener("click", closeProject);
 
-
-// Close modal using Escape key
-
 document.addEventListener("keydown", function(event) {
-
     if (
         event.key === "Escape" &&
         modal.classList.contains("active")
     ) {
         closeProject();
     }
-
 });
 
 
 // ========================================
-// 9. INITIALIZE WEBSITE
+// 10. INITIALIZE WEBSITE
 // ========================================
 
 renderProjects();
