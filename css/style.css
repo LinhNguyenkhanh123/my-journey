@@ -1108,3 +1108,138 @@ iframe {
         font-size: 16px;
     }
 }
+
+/* ABOUT ME - EDITORIAL LAYOUT */
+.about-section .section-heading h2 {
+    margin-bottom: 12px;
+}
+.about-subtitle {
+    margin-top: 12px;
+    color: var(--text-secondary);
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+}
+
+.about-content {
+    margin-top: 55px;
+}
+
+.about-overview {
+    max-width: 850px;
+    margin-bottom: 35px;
+}
+
+.about-overview h3 {
+    margin-bottom: 15px;
+    color: var(--text);
+    font-family: var(--font-display);
+    font-size: 25px;
+    font-weight: 750;
+}
+
+.about-overview > p {
+    color: var(--text-secondary);
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* HIGHLIGHT CARDS */
+
+.about-highlights {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.about-card {
+    min-width: 0;
+    padding: 28px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.about-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--teal);
+    box-shadow: 0 12px 30px rgba(24, 60, 59, 0.06);
+}
+
+.about-card-label {
+    margin-bottom: 14px;
+    color: var(--teal);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.about-card h3 {
+    margin-bottom: 12px;
+    color: var(--text);
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 750;
+    line-height: 1.35;
+}
+
+.about-card > p:not(.about-card-label) {
+    margin-bottom: 0;
+    color: var(--text-secondary);
+    font-size: 15px;
+    line-height: 1.75;
+}
+
+.about-card-detail {
+    font-size: 14px !important;
+}
+
+.about-card-wide {
+    grid-column: 1 / -1;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+    .about-content {
+        margin-top: 40px;
+    }
+
+    .about-highlights {
+        grid-template-columns: 1fr;
+    }
+
+    .about-card-wide {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .about-subtitle {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .about-overview h3 {
+        font-size: 22px;
+    }
+
+    .about-overview > p {
+        font-size: 15px;
+    }
+
+    .about-card {
+        padding: 22px;
+    }
+
+    .about-card h3 {
+        font-size: 20px;
+    }
+
+    .about-card > p:not(.about-card-label) {
+        font-size: 14px;
+    }
+}
