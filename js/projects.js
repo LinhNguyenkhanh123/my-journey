@@ -15,7 +15,7 @@ const projects = [
         id: "global-sales",
         title: "Global Sales Performance",
         category: "Personal Project",
-        type: "Business Intelligence",
+        type: "Data Analysis",
         description:
             "An exploration of global sales performance through business metrics, interactive dashboards and actionable insights.",
         tools: ["Data Analysis", "Power BI"],
@@ -26,10 +26,10 @@ const projects = [
         id: "financial-analysis",
         title: "Financial Analysis",
         category: "Personal Project",
-        type: "Financial Analytics",
+        type: "Data Analysis",
         description:
             "A financial analysis project focused on evaluating business performance and translating financial data into insights.",
-        tools: ["Financial Analysis", "Power BI"],
+        tools: ["Data Analysis", "Power BI"],
         github: "https://github.com/LinhNguyenkhanh123/financial_analysis",
         readme: "https://raw.githubusercontent.com/LinhNguyenkhanh123/financial_analysis/main/README.md"
     },
@@ -37,7 +37,7 @@ const projects = [
         id: "vietdist",
         title: "VietDist Analytics",
         category: "Personal Project",
-        type: "Data Pipeline",
+        type: "Data Analysis",
         description:
             "A data analytics pipeline that organizes business data through a structured medallion architecture for reporting and analysis.",
         tools: ["Python", "PostgreSQL", "Power BI"],
@@ -48,7 +48,7 @@ const projects = [
         id: "shopify-churn",
         title: "Shopify Churn Prediction",
         category: "Personal Project",
-        type: "Predictive Analytics",
+        type: "Data Analysis",
         description:
             "A merchant churn prediction project involving data preparation, feature engineering and machine learning workflows.",
         tools: ["Python", "SQL", "DuckDB", "Machine Learning"],
@@ -59,7 +59,7 @@ const projects = [
         id: "marketing-sales-analysis",
         title: "Marketing Sales Analysis",
         category: "Personal Project",
-        type: "Marketing Analytics",
+        type: "Data Analysis",
         description:
             "An analysis of marketing and sales data to explore performance patterns and support data-driven decisions.",
         tools: ["Data Analysis", "Power BI"],
@@ -70,10 +70,10 @@ const projects = [
         id: "hr-workforce-database",
         title: "HR Workforce Database",
         category: "Personal Project",
-        type: "Database Design",
+        type: "Data Analysis",
         description:
             "A relational database project designed to organize workforce information and support structured HR data management.",
-        tools: ["SQL", "Database Design"],
+        tools: ["Data Analysis", "Power BI"],
         github: "https://github.com/LinhNguyenkhanh123/hr_workforce_database",
         readme: "https://raw.githubusercontent.com/LinhNguyenkhanh123/hr_workforce_database/main/README.md"
     }
