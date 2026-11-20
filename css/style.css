@@ -3,32 +3,18 @@
 ======================================== */
 
 :root {
-    --bg: #F5F3ED;
-    --surface: #FFFFFF;
-    --surface-soft: #E9EEE8;
-
-    --text: #183C3B;
-    --text-secondary: #65716B;
-    --muted: #89918A;
-
-    --teal: #176F66;
-    --teal-dark: #10574F;
-    --teal-light: #DCEAE4;
-
-    --border: #DCDDD5;
-    --dark: #183C3B;
-
-    --font-body: "DM Sans", sans-serif;
-    --font-display: "Playfair Display", serif;
-
-    --container: 1160px;
+  --font-main: "Manrope", sans-serif;
+  --color-bg: #F5F3ED;
+  --color-text: #183C3B;
+  --color-muted: #657875;
+  --color-accent: #176F66;
+  --font-body: 17px;
+  --line-height-body: 1.7;
 }
-
 
 /* ========================================
    2. RESET & GLOBAL
 ======================================== */
-
 * {
     margin: 0;
     padding: 0;
