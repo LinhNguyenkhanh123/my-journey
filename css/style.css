@@ -2,7 +2,6 @@
 /* ========================================
    1. DESIGN TOKENS
 ======================================== */
-
 :root {
     /* Typography */
     --font-main: "Manrope", sans-serif;
@@ -1201,13 +1200,11 @@ iframe {
 }
 
 /* FULL-WIDTH THIRD BOX */
-
 .about-card-wide {
     grid-column: 1 / -1;
 }
 
 /* RESPONSIVE */
-
 @media (max-width: 850px) {
     .about-content {
         margin-top: 40px;
@@ -1227,23 +1224,44 @@ iframe {
         font-size: 14px;
         line-height: 1.7;
     }
-
     .about-overview h3 {
         font-size: 22px;
     }
-
     .about-overview > p {
         font-size: 15px;
     }
-
     .about-card {
         padding: 22px;
     }
-
     .about-card h3 {
         font-size: 20px;
     }
+   
+/* PROJECT TYPE LABELS */
+.project-type {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
 
+.project-category,
+.project-work-type {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+}
+
+.project-work-type {
+    padding: 4px 9px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--teal);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+}
     .about-card > p:not(.about-card-label) {
         font-size: 14px;
     }
