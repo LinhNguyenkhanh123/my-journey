@@ -28,7 +28,7 @@ const projects = [
         type: "Data Analytics",
         description:
             "Building an end-to-end data pipeline using Python, PostgreSQL and Power BI.",
-        tools: ["Data Analysis", "Python", "PostgreSQL", "Power BI"],
+        tools: ["Data Analysis", "Python", "SQL", "Power BI"],
         github: "https://github.com/LinhNguyenkhanh123/vietdist_analytics",
         readme: "https://raw.githubusercontent.com/LinhNguyenkhanh123/vietdist_analytics/main/README.md"
     },
@@ -61,7 +61,7 @@ const projects = [
         type: "Finance",
         description:
             "Applying financial analysis techniques to evaluate business performance and financial health.",
-        tools: ["Financial Analysis", "Power BI"],
+        tools: ["Data Analysis", "Power BI"],
         github: "https://github.com/LinhNguyenkhanh123/financial_analysis",
         readme: "https://raw.githubusercontent.com/LinhNguyenkhanh123/financial_analysis/main/README.md"
     },
@@ -72,7 +72,7 @@ const projects = [
         type: "Database",
         description:
             "Designing and querying a workforce database to organize and analyze human resources data.",
-        tools: ["SQL", "Database Design"],
+        tools: ["Data Analysis", "Power BI"],
         github: "https://github.com/LinhNguyenkhanh123/hr_workforce_database",
         readme: "https://raw.githubusercontent.com/LinhNguyenkhanh123/hr_workforce_database/main/README.md"
     }
