@@ -1,15 +1,27 @@
-
 const projects = [
     {
         id: "vietjet-analysis",
         title: "Vietjet Air Financial Analysis",
         category: "Academic Project",
+        workType: "Group Project",
         type: "Financial Analysis",
         description:
             "An analysis of Vietjet Air's financial performance, cash flow structure, profitability and short-term liquidity risk.",
         tools: ["Financial Analysis", "Excel"],
         github: "https://drive.google.com/file/d/1uj8GfqsMuPnr427L7iEPHEXpEyVpk-8_/view",
         readme: null
+    },
+    {
+        id: "omo-simulation",
+        title: "Open Market Operations Simulation Game",
+        category: "Academic Project",
+        workType: "Group Project",
+        type: "Banking Simulation",
+        description:
+            "A monetary policy simulation game focused on Open Market Operations (OMO), where players act as the State Bank of Vietnam's Open Market Operations Committee and make policy decisions based on economic conditions.",
+        tools: ["Python", "Banking", "HTML", "Macroeconomics"],
+        github: "https://github.com/FTU-Legacy-63/G03",
+        readme: https://github.com/FTU-Legacy-63/G03/blob/main/README.md
     },
     {
         id: "global-sales",
