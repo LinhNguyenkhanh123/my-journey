@@ -106,19 +106,95 @@ function createProjectArtwork(project) {
 
         // Analytics: data grid and metrics
         "analytics": `
-            <g class="art-grid">
-                <path d="M55 35 V190 M110 35 V190 M165 35 V190 M220 35 V190 M275 35 V190 M330 35 V190"/>
-                <path d="M55 60 H330 M55 110 H330 M55 160 H330"/>
-            </g>
-            <g class="art-blocks">
-                <rect x="75" y="125" width="38" height="50" rx="3"/>
-                <rect x="130" y="90" width="38" height="85" rx="3"/>
-                <rect x="185" y="105" width="38" height="70" rx="3"/>
-                <rect x="240" y="65" width="38" height="110" rx="3"/>
-            </g>
-            <circle class="art-dot" cx="299" cy="45" r="9"/>
+            <!-- Dashboard frame -->
+            <rect x="48" y="20" width="304" height="158" rx="9"
+                  class="dash-frame" />
+        
+            <!-- Dashboard header -->
+            <rect x="64" y="34" width="58" height="5" rx="2.5"
+                  class="dash-heading" />
+            <rect x="64" y="44" width="34" height="3" rx="1.5"
+                  class="dash-subheading" />
+            <circle cx="321" cy="39" r="3" class="dash-dot" />
+            <circle cx="332" cy="39" r="3" class="dash-dot" />
+            <circle cx="343" cy="39" r="3" class="dash-dot" />
+        
+            <!-- KPI cards -->
+            <rect x="64" y="57" width="82" height="35" rx="5"
+                  class="dash-card" />
+            <rect x="74" y="65" width="25" height="3" rx="1.5"
+                  class="dash-muted" />
+            <rect x="74" y="74" width="43" height="8" rx="2"
+                  class="dash-value" />
+            <path d="M123 81 L128 75 L133 78 L138 69"
+                  class="dash-trend" />
+            <rect x="155" y="57" width="82" height="35" rx="5"
+                  class="dash-card" />
+            <rect x="165" y="65" width="29" height="3" rx="1.5"
+                  class="dash-muted" />
+            <rect x="165" y="74" width="35" height="8" rx="2"
+                  class="dash-value" />
+            <path d="M210 80 L215 76 L220 78 L229 68"
+                  class="dash-trend" />
+            <rect x="246" y="57" width="90" height="35" rx="5"
+                  class="dash-card" />
+            <rect x="256" y="65" width="30" height="3" rx="1.5"
+                  class="dash-muted" />
+            <rect x="256" y="74" width="39" height="8" rx="2"
+                  class="dash-value" />
+            <circle cx="319" cy="77" r="9" class="dash-donut-bg" />
+            <path d="M319 68 A9 9 0 1 1 311 81"
+                  class="dash-donut" />
+        
+            <!-- Trend chart -->
+            <rect x="64" y="101" width="164" height="62" rx="5"
+                  class="dash-card" />
+            <rect x="74" y="110" width="45" height="3" rx="1.5"
+                  class="dash-muted" />
+            <path d="M76 145 H216 M76 132 H216 M76 119 H216"
+                  class="dash-grid" />
+            <path d="M78 145
+                     L98 137
+                     L119 140
+                     L140 126
+                     L161 131
+                     L182 116
+                     L211 121"
+                  class="dash-line" />
+        
+            <path d="M78 145
+                     L98 137
+                     L119 140
+                     L140 126
+                     L161 131
+                     L182 116
+                     L211 121
+                     L211 154
+                     L78 154 Z"
+                  class="dash-area" />
+        
+            <circle cx="182" cy="116" r="3" class="dash-point" />
+        
+            <!-- Bar chart -->
+            <rect x="237" y="101" width="99" height="62" rx="5"
+                  class="dash-card" />
+            <rect x="247" y="110" width="40" height="3" rx="1.5"
+                  class="dash-muted" />
+        
+            <path d="M248 153 H325" class="dash-grid" />
+        
+            <rect x="252" y="137" width="10" height="16" rx="2"
+                  class="dash-bar" />
+            <rect x="267" y="128" width="10" height="25" rx="2"
+                  class="dash-bar" />
+            <rect x="282" y="133" width="10" height="20" rx="2"
+                  class="dash-bar" />
+            <rect x="297" y="119" width="10" height="34" rx="2"
+                  class="dash-bar-highlight" />
+            <rect x="312" y="125" width="10" height="28" rx="2"
+                  class="dash-bar" />
         `,
-
+        
         // Machine learning: connected data nodes
         "network": `
             <g class="art-connections">
