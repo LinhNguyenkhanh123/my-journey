@@ -191,13 +191,10 @@ a {
     position: absolute;
     left: 0;
     bottom: 0;
-
     width: 100%;
     height: 1px;
-
     content: "";
     background: var(--teal);
-
     transform: scaleX(0);
     transform-origin: right;
     transition: transform .3s ease;
