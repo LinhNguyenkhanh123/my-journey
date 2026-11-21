@@ -155,7 +155,6 @@ function createProjectCard(project, index) {
 // ========================================
 // 5. RENDER PROJECTS
 // ========================================
-
 function renderProjects() {
     if (!academicContainer || !personalContainer) {
         console.error("Project containers not found.");
@@ -179,24 +178,52 @@ function renderProjects() {
         .join("");
 
     // Update project counts automatically
-    const academicCount = document.querySelector(
-        ".project-group:first-of-type .group-heading span"
+    const totalCount = document.getElementById(
+        "total-project-count"
     );
-
-    const personalCount = document.querySelector(
-        ".project-group:last-of-type .group-heading span"
+    
+    const academicCount = document.getElementById(
+        "academic-project-count"
     );
-
+    
+    const personalCount = document.getElementById(
+        "personal-project-count"
+    );
+    
+    // Dashboard counts
+    if (totalCount) {
+        totalCount.textContent =
+            String(projects.length).padStart(2, "0");
+    }
+    
     if (academicCount) {
         academicCount.textContent =
-            `${String(academicProjects.length).padStart(2, "0")} PROJECTS`;
+            String(academicProjects.length).padStart(2, "0");
     }
-
+    
     if (personalCount) {
         personalCount.textContent =
+            String(personalProjects.length).padStart(2, "0");
+    }
+    
+    // Project section heading counts
+    const academicHeadingCount = document.getElementById(
+        "academic-heading-count"
+    );
+    
+    const personalHeadingCount = document.getElementById(
+        "personal-heading-count"
+    );
+    
+    if (academicHeadingCount) {
+        academicHeadingCount.textContent =
+            `${String(academicProjects.length).padStart(2, "0")} PROJECTS`;
+    }
+    
+    if (personalHeadingCount) {
+        personalHeadingCount.textContent =
             `${String(personalProjects.length).padStart(2, "0")} PROJECTS`;
     }
-}
 
 // ========================================
 // 5.1. INITIALIZE PROJECT CAROUSELS
