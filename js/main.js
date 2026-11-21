@@ -71,6 +71,101 @@ const projectThemes = {
     }
 };
 
+// 3.1. PROJECT ARTWORK GENERATOR
+function createProjectArtwork(project) {
+    const artworks = {
+        // Financial analysis: chart and trend line
+        "financial": `
+            <g class="art-grid">
+                <path d="M40 35 H360 M40 85 H360 M40 135 H360 M40 185 H360"/>
+            </g>
+            <g class="art-bars">
+                <rect x="65" y="125" width="32" height="75" rx="3"/>
+                <rect x="120" y="95" width="32" height="105" rx="3"/>
+                <rect x="175" y="110" width="32" height="90" rx="3"/>
+                <rect x="230" y="55" width="32" height="145" rx="3"/>
+                <rect x="285" y="35" width="32" height="165" rx="3"/>
+            </g>
+            <path class="art-line" d="M65 105 L136 72 L191 91 L246 42 L301 25"/>
+            <circle class="art-dot" cx="301" cy="25" r="6"/>
+        `,
+
+        // Banking: monetary flow and circulation
+        "banking": `
+            <g class="art-orbits">
+                <circle cx="200" cy="110" r="82"/>
+                <circle cx="200" cy="110" r="55"/>
+                <circle cx="200" cy="110" r="28"/>
+            </g>
+            <path class="art-line" d="M75 110 C75 40 325 40 325 110"/>
+            <path class="art-line" d="M75 110 C75 180 325 180 325 110"/>
+            <circle class="art-dot" cx="118" cy="57" r="7"/>
+            <circle class="art-dot" cx="285" cy="157" r="7"/>
+            <circle class="art-center" cx="200" cy="110" r="13"/>
+        `,
+
+        // Analytics: data grid and metrics
+        "analytics": `
+            <g class="art-grid">
+                <path d="M55 35 V190 M110 35 V190 M165 35 V190 M220 35 V190 M275 35 V190 M330 35 V190"/>
+                <path d="M55 60 H330 M55 110 H330 M55 160 H330"/>
+            </g>
+            <g class="art-blocks">
+                <rect x="75" y="125" width="38" height="50" rx="3"/>
+                <rect x="130" y="90" width="38" height="85" rx="3"/>
+                <rect x="185" y="105" width="38" height="70" rx="3"/>
+                <rect x="240" y="65" width="38" height="110" rx="3"/>
+            </g>
+            <circle class="art-dot" cx="299" cy="45" r="9"/>
+        `,
+
+        // Machine learning: connected data nodes
+        "network": `
+            <g class="art-connections">
+                <path d="M95 55 L190 95 L300 40"/>
+                <path d="M95 55 L110 165 L190 95"/>
+                <path d="M190 95 L270 165 L300 40"/>
+                <path d="M110 165 L270 165"/>
+                <path d="M190 95 L190 190"/>
+            </g>
+            <g class="art-nodes">
+                <circle cx="95" cy="55" r="12"/>
+                <circle cx="190" cy="95" r="17"/>
+                <circle cx="300" cy="40" r="10"/>
+                <circle cx="110" cy="165" r="11"/>
+                <circle cx="270" cy="165" r="14"/>
+                <circle cx="190" cy="190" r="8"/>
+            </g>
+        `
+    };
+
+    const artworkType = {
+        "vietjet-analysis": "financial",
+        "financial-analysis": "financial",
+        "omo-simulation": "banking",
+        "global-sales": "analytics",
+        "vietdist": "analytics",
+        "marketing-sales-analysis": "analytics",
+        "shopify-churn": "network",
+        "hr-workforce-database": "network"
+    };
+
+    const selectedArtwork =
+        artworks[artworkType[project.id]] || artworks.analytics;
+
+    return `
+        <svg
+            class="project-artwork"
+            viewBox="0 0 400 220"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+            focusable="false"
+        >
+            ${selectedArtwork}
+        </svg>
+    `;
+}
+
 // 4. PROJECT CARDS
 function createProjectCard(project, index) {
     const toolsHTML = project.tools
