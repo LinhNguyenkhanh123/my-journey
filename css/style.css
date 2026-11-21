@@ -1,4 +1,7 @@
 /* 1. DESIGN TOKENS*/
+html {
+    color-scheme: dark;
+}
 :root {
     /* Typography */
     --font-main: "Manrope", sans-serif;
