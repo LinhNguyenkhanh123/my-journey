@@ -141,13 +141,13 @@ function createProjectArtwork(project) {
 
     const artworkType = {
         "vietjet-analysis": "financial",
-        "financial-analysis": "financial",
+        "financial-analysis": "analytics",
         "omo-simulation": "banking",
         "global-sales": "analytics",
         "vietdist": "analytics",
         "marketing-sales-analysis": "analytics",
         "shopify-churn": "network",
-        "hr-workforce-database": "network"
+        "hr-workforce-database": "analytics"
     };
 
     const selectedArtwork =
