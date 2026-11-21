@@ -712,11 +712,7 @@ async function openProject(projectId) {
     }
 }
 
-
-// ========================================
 // 8. CLOSE PROJECT MODAL
-// ========================================
-
 function closeProject() {
     if (!modal.classList.contains("active")) {
         return;
@@ -833,6 +829,36 @@ function initializeActiveNavigation() {
     );
 
     sections.forEach(section => observer.observe(section));
+}
+
+
+/* CONTACT - COPY EMAIL */
+const copyEmailButton = document.getElementById("copy-email");
+const copyFeedback = document.getElementById("copy-feedback");
+if (copyEmailButton && copyFeedback) {
+    copyEmailButton.addEventListener("click", async () => {
+        const email = copyEmailButton.dataset.email;
+
+        try {
+            await navigator.clipboard.writeText(email);
+
+            copyFeedback.textContent = "Email copied successfully!";
+            copyEmailButton.innerHTML = 'Copied! <span>✓</span>';
+
+        } catch (error) {
+            copyFeedback.textContent =
+                "Unable to copy automatically. Please select the email address below.";
+
+            return;
+        }
+
+        copyFeedback.classList.add("is-visible");
+
+        setTimeout(() => {
+            copyFeedback.classList.remove("is-visible");
+            copyEmailButton.innerHTML = 'Copy email <span>⧉</span>';
+        }, 2500);
+    });
 }
 
 // INITIALIZE WEBSITE
