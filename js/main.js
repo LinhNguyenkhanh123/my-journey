@@ -588,10 +588,6 @@ document.addEventListener("keydown", function(event) {
     }
 });
 
-// 10. INITIALIZE WEBSITE
-renderProjects();
-initializeProjectCarousels();
-
 /* SCROLL REVEAL*/
 const revealElements = document.querySelectorAll(
     ".section-heading, .project-card, .about-card"
@@ -615,3 +611,8 @@ revealElements.forEach((element) => {
     element.classList.add("reveal");
     revealObserver.observe(element);
 });
+
+// INITIALIZE WEBSITE
+renderProjects();
+initializeProjectCarousels();
+initializeScrollReveal();
