@@ -28,7 +28,7 @@ function escapeHTML(value) {
     });
 }
 
-// 3. PROJECT VISUAL THEMES
+// 3. VISUAL THEMES
 const projectThemes = {
     "vietjet-analysis": {
         background: "#E8E5D9",
