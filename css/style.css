@@ -1133,11 +1133,7 @@ a {
     gap: 18px;
 }
 
-
-/* ========================================
-   9. CONTACT
-======================================== */
-
+/* 9. CONTACT */
 .contact-section {
     background: var(--dark);
     color: white;
@@ -1190,11 +1186,82 @@ a {
     color: white;
 }
 
+/* CONTACT ACTIONS */
+.contact-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-top: 30px;
+}
 
-/* ========================================
-   10. FOOTER
-======================================== */
+.contact-actions .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    cursor: pointer;
+    font: inherit;
+}
 
+.button-outline {
+    padding: 14px 22px;
+    border: 1px solid rgba(255, 255, 255, .45);
+    border-radius: 50px;
+    background: transparent;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    transition: all .3s ease;
+}
+
+.button-outline:hover {
+    background: rgba(255, 255, 255, .12);
+    border-color: #fff;
+    transform: translateY(-3px);
+}
+
+.copy-feedback {
+    min-height: 18px;
+    margin-top: 13px;
+    color: #C7DED4;
+    font-size: 12px;
+    opacity: 0;
+    transform: translateY(5px);
+    transition: all .25s ease;
+}
+
+.copy-feedback.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.contact-mailto {
+    display: inline-block;
+    margin-top: 8px;
+    color: rgba(255, 255, 255, .7);
+    font-size: 11px;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    transition: color .25s ease;
+}
+
+.contact-mailto:hover {
+    color: #fff;
+}
+
+@media (max-width: 480px) {
+    .contact-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .contact-actions .button {
+        width: 100%;
+    }
+}
+
+/* 10. FOOTER */
 .site-footer {
     padding: 25px 0;
     background: #102E2D;
