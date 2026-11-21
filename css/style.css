@@ -2371,8 +2371,9 @@ iframe {
     opacity: 1;
 }
 .about-card:hover {
-    background: #FFFFFF;
-    box-shadow: 0 18px 42px rgba(24, 60, 59, .10);
+    background: var(--surface-hover);
+    border-color: var(--teal);
+    box-shadow: 0 18px 42px rgba(0, 0, 0, .2);
 }
 
 /* Preserve scroll-reveal transform */
@@ -3029,4 +3030,16 @@ strong,
 
 .about-card p {
     color: var(--text-secondary);
+}
+/* FINAL FIX — PROJECT TOOL TAG CONTRAST */
+.project-card .project-tools .tool-tag {
+    background: rgba(66, 214, 197, .07);
+    border: 1px solid rgba(66, 214, 197, .16);
+    color: #B8D9D7;
+}
+
+.project-card:hover .project-tools .tool-tag {
+    background: rgba(66, 214, 197, .12);
+    border-color: rgba(66, 214, 197, .3);
+    color: #DCE8EF;
 }
