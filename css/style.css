@@ -1453,70 +1453,54 @@ iframe {
 }
 
 /* Dashboard header */
-
-.dashboard-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-
-    padding-bottom: 17px;
-    border-bottom: 1px solid var(--border);
-}
-
-.dashboard-label {
-    color: var(--text-secondary);
-    font-size: 9px;
-    font-weight: 800;
-    letter-spacing: 1.3px;
-}
-
-.dashboard-status {
-    padding: 5px 8px;
-    border-radius: 2px;
-
-    background: rgba(23, 111, 102, 0.1);
-    color: var(--teal);
-
-    font-size: 8px;
-    font-weight: 800;
-    letter-spacing: 0.8px;
-}
-
-/* Main dashboard content */
 .dashboard-main {
-    padding: 30px 0 25px;
+    padding: 34px 0 29px;
 }
 
 .dashboard-caption {
-    margin-bottom: 9px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 12px;
     color: var(--muted);
-    font-size: 9px;
+    font-size: 10px;
     font-weight: 800;
-    letter-spacing: 1.5px;
+    letter-spacing: 1.7px;
+}
+
+.dashboard-caption::before {
+    content: "";
+    width: 18px;
+    height: 1px;
+    background: var(--teal);
+    opacity: 0.8;
 }
 
 .dashboard-main h3 {
     color: var(--dark);
     font-family: var(--font-display);
-    font-size: 32px;
+    font-size: clamp(34px, 3vw, 40px);
     font-weight: 800;
-    letter-spacing: -1.5px;
-    line-height: 1.2;
+    letter-spacing: -1.8px;
+    line-height: 1.12;
 }
 
 .dashboard-main h3 span {
+    display: inline-block;
+    padding: 0 2px;
     color: var(--teal);
+    font-weight: 500;
+    opacity: 0.85;
 }
 
 .dashboard-description {
-    margin-top: 10px;
+    max-width: 280px;
+    margin-top: 14px;
     color: var(--text-secondary);
-    font-size: 12px;
-    line-height: 1.6;
+    font-size: 13px;
+    line-height: 1.75;
 }
 
-/* Decorative chart */
 /* PORTFOLIO STATISTICS */
 .dashboard-stats {
     display: grid;
@@ -1661,7 +1645,6 @@ iframe {
 .hero-dashboard {
     animation: heroFadeUp .95s var(--ease) .16s both;
 }
-
 
 /* 14. SCROLL REVEAL — SOFT LIFT */
 .reveal {
