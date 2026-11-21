@@ -190,6 +190,8 @@ function createProjectCard(project, index) {
                 class="project-visual"
                 style="--visual-bg: ${theme.background}"
             >
+                ${createProjectArtwork(project)}
+                
                 <span class="project-visual-label">
                     ${escapeHTML(theme.label)}
                 </span>
