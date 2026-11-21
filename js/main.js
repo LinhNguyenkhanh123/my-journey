@@ -861,6 +861,84 @@ if (copyEmailButton && copyFeedback) {
     });
 }
 
+
+/* AMBIENT BACKGROUND - DYNAMIC MOTION */
+(() => {
+    const ambientSections = document.querySelectorAll(
+        ".hero-section, .about-section, .projects-section, .contact-section"
+    );
+
+    if (!ambientSections.length) return;
+
+    const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (reduceMotion) return;
+
+    let ticking = false;
+
+    // Scroll-based ambient movement
+    const updateAmbientScroll = () => {
+        ambientSections.forEach((section) => {
+            const rect = section.getBoundingClientRect();
+
+            const distance =
+                (rect.top + rect.height / 2 - window.innerHeight / 2) * -0.025;
+
+            const shift = Math.max(-28, Math.min(28, distance));
+
+            section.style.setProperty(
+                "--scroll-shift",
+                `${shift}px`
+            );
+        });
+
+        ticking = false;
+    };
+
+    const requestAmbientUpdate = () => {
+        if (!ticking) {
+            window.requestAnimationFrame(updateAmbientScroll);
+            ticking = true;
+        }
+    };
+
+    window.addEventListener(
+        "scroll",
+        requestAmbientUpdate,
+        { passive: true }
+    );
+
+    window.addEventListener(
+        "resize",
+        requestAmbientUpdate,
+        { passive: true }
+    );
+
+    requestAmbientUpdate();
+
+    // Mouse-based ambient glow
+    ambientSections.forEach((section) => {
+        section.addEventListener("pointermove", (event) => {
+            if (event.pointerType === "touch") return;
+
+            const rect = section.getBoundingClientRect();
+
+            const x = ((event.clientX - rect.left) / rect.width) * 100;
+            const y = ((event.clientY - rect.top) / rect.height) * 100;
+
+            section.style.setProperty("--pointer-x", `${x}%`);
+            section.style.setProperty("--pointer-y", `${y}%`);
+        });
+
+        section.addEventListener("pointerleave", () => {
+            section.style.setProperty("--pointer-x", "50%");
+            section.style.setProperty("--pointer-y", "50%");
+        });
+    });
+})();
+
 // INITIALIZE WEBSITE
 renderProjects();
 initializeProjectCarousels();
