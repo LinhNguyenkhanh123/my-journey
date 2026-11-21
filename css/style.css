@@ -1341,9 +1341,7 @@ iframe {
     text-transform: uppercase;
 }
 
-/* ========================================
-   PROJECT CAROUSEL - FINAL ADJUSTMENTS
-======================================== */
+/* PROJECT CAROUSEL - ADJUSTMENTS */
 /* Carousel layout */
 .project-carousel {
     width: 100%;
@@ -1401,11 +1399,7 @@ iframe {
     }
 }
 
-
-/* ========================================
-   14. HERO ANALYTICS VISUAL
-======================================== */
-
+/* 14. HERO ANALYTICS VISUAL*/
 .hero-aside {
     width: 100%;
     max-width: 360px;
@@ -1458,7 +1452,6 @@ iframe {
 }
 
 /* Main dashboard content */
-
 .dashboard-main {
     padding: 30px 0 25px;
 }
@@ -1492,7 +1485,6 @@ iframe {
 }
 
 /* Decorative chart */
-
 /* PORTFOLIO STATISTICS */
 .dashboard-stats {
     display: grid;
@@ -1593,5 +1585,29 @@ iframe {
     }
     .dashboard-main h3 {
         font-size: 29px;
+    }
+}
+
+/* SCROLL REVEAL ANIMATION */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+        opacity 700ms ease,
+        transform 700ms cubic-bezier(.2, .65, .3, 1);
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
     }
 }
