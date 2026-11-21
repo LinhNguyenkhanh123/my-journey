@@ -2973,3 +2973,54 @@ strong,
 .dashboard-caption {
     color: var(--teal);
 }
+
+/* DARK THEME — COMPONENT CLEANUP */
+/* Skill tags */
+.skill-list span {
+    background: rgba(66, 214, 197, .07);
+    border: 1px solid rgba(66, 214, 197, .2);
+    color: var(--text-secondary);
+}
+
+/* Tool tags */
+.tool-tag {
+    background: rgba(66, 214, 197, .07);
+    border: 1px solid rgba(66, 214, 197, .16);
+    color: var(--text-secondary);
+}
+
+/* Timeline */
+.journey-card {
+    background: rgba(17, 29, 45, .78);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+}
+
+.journey-card h3,
+.journey-card h4 {
+    color: var(--dark);
+}
+
+.journey-card p {
+    color: var(--text-secondary);
+}
+
+.journey-date span,
+.journey-group-title span {
+    color: var(--teal);
+}
+
+/* General card surfaces */
+.about-card {
+    background: var(--surface);
+    border-color: var(--border);
+}
+
+.about-card h3,
+.about-card h4 {
+    color: var(--dark);
+}
+
+.about-card p {
+    color: var(--text-secondary);
+}
