@@ -69,11 +69,11 @@ const projects = [
     },
     {
         id: "marketing-sales-analysis",
-        title: "Marketing Sales Analysis",
+        title: "Ads Efficiency Analysis",
         category: "Personal Project",
         type: "Data Analysis",
         description:
-            "An analysis of marketing and sales data to explore performance patterns and support data-driven decisions.",
+            "An analysis of ads data to explore performance patterns and support data-driven decisions.",
         tools: ["Data Analysis", "Power BI"],
         github: "https://github.com/LinhNguyenkhanh123/marketing_sales_analysis",
         readme: "https://raw.githubusercontent.com/LinhNguyenkhanh123/marketing_sales_analysis/main/README.md"
