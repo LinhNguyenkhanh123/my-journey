@@ -198,6 +198,125 @@ function renderProjects() {
     }
 }
 
+// ========================================
+// 5.1. INITIALIZE PROJECT CAROUSELS
+// ========================================
+function initializeProjectCarousels() {
+    const carousels = document.querySelectorAll(
+        ".project-carousel"
+    );
+    carousels.forEach(carousel => {
+        const grid = carousel.querySelector(".project-grid");
+        const prevButton = carousel.querySelector(
+            "[data-carousel-prev]"
+        );
+        const nextButton = carousel.querySelector(
+            "[data-carousel-next]"
+        );
+        if (!grid || !prevButton || !nextButton) {
+            return;
+        }
+
+        // Update navigation button states
+        function updateButtons() {
+            const maxScroll = grid.scrollWidth - grid.clientWidth;
+            prevButton.disabled = grid.scrollLeft <= 2;
+            nextButton.disabled =
+                grid.scrollLeft >= maxScroll - 2 || maxScroll <= 2;
+        }
+
+        // Calculate the distance of one project card
+        function getScrollDistance() {
+            const firstCard = grid.querySelector(".project-card");
+            if (!firstCard) {
+                return grid.clientWidth;
+            }
+
+            const cardWidth = firstCard.getBoundingClientRect().width;
+            const gap = parseFloat(
+                getComputedStyle(grid).columnGap
+            ) || 0;
+            return cardWidth + gap;
+        }
+
+        // Previous project
+        prevButton.addEventListener("click", () => {
+            grid.scrollBy({
+                left: -getScrollDistance(),
+                behavior: "smooth"
+            });
+        });
+
+        // Next project
+        nextButton.addEventListener("click", () => {
+            grid.scrollBy({
+                left: getScrollDistance(),
+                behavior: "smooth"
+            });
+        });
+
+        // Update buttons when the carousel scrolls
+        grid.addEventListener("scroll", updateButtons);
+
+        // Mouse drag support
+        let isPointerDown = false;
+        let isDragging = false;
+        let startX = 0;
+        let startScrollLeft = 0;
+        let lastDragTime = 0;
+
+        grid.addEventListener("pointerdown", event => {
+            if (event.pointerType !== "mouse" || event.button !== 0) {
+                return;
+            }
+            isPointerDown = true;
+            isDragging = false;
+            startX = event.clientX;
+            startScrollLeft = grid.scrollLeft;
+        });
+        grid.addEventListener("pointermove", event => {
+            if (!isPointerDown) {
+                return;
+            }
+
+            const distance = event.clientX - startX;
+            if (Math.abs(distance) > 5 && !isDragging) {
+                isDragging = true;
+                grid.classList.add("is-dragging");
+                grid.setPointerCapture(event.pointerId);
+            }
+
+            if (isDragging) {
+                grid.scrollLeft = startScrollLeft - distance;
+            }
+        });
+
+        function stopDragging() {
+            if (isDragging) {
+                lastDragTime = Date.now();
+            }
+            isPointerDown = false;
+            isDragging = false;
+            grid.classList.remove("is-dragging");
+        }
+
+        grid.addEventListener("pointerup", stopDragging);
+        grid.addEventListener("pointercancel", stopDragging);
+
+        // Prevent opening a project after dragging
+        grid.addEventListener("click", event => {
+            if (Date.now() - lastDragTime < 400) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+        }, true);
+
+        // Recalculate button states when the layout changes
+        window.addEventListener("resize", updateButtons);
+
+        updateButtons();
+    });
+}
 
 // ========================================
 // 6. PREPARE README CONTENT
@@ -429,9 +548,8 @@ document.addEventListener("keydown", function(event) {
     }
 });
 
-
 // ========================================
 // 10. INITIALIZE WEBSITE
 // ========================================
-
 renderProjects();
+initializeProjectCarousels();
