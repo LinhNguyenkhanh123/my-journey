@@ -122,16 +122,22 @@ a {
     text-transform: uppercase;
 }
 
-/* ========================================
-   3. NAVIGATION
-======================================== */
+/* 3. NAVIGATION — DARK EDITORIAL*/
 .site-header {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(245, 243, 237, 0.92);
-    backdrop-filter: blur(14px);
-    border-bottom: 1px solid rgba(24, 60, 59, 0.09);
+
+    background: rgba(11, 18, 32, .82);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid rgba(148, 190, 196, .12);
+
+    transition:
+        background .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
 }
 
 .nav {
@@ -142,10 +148,12 @@ a {
 }
 
 .brand {
+    color: var(--text);
     font-family: var(--font-display);
     font-size: 29px;
-    font-weight: 700;
+    font-weight: 800;
     letter-spacing: -2px;
+    transition: color .25s ease;
 }
 
 .brand span {
@@ -160,38 +168,94 @@ a {
 
 .nav-links a,
 .nav-cta {
-    font-size: 14px;
-    font-weight: 700;
+    position: relative;
+    font-size: 13px;
+    font-weight: 650;
     transition:
         color .25s ease,
         background .25s ease,
-        border-color .25s ease;
+        border-color .25s ease,
+        transform .25s ease;
 }
 
+/* Navigation links */
 .nav-links a {
+    padding: 8px 0;
     color: var(--text-secondary);
 }
 
-.nav-links a:hover,
-.nav-cta:hover {
+.nav-links a::after {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 1px;
+
+    content: "";
+    background: var(--teal);
+
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform .3s ease;
+}
+
+.nav-links a:hover {
     color: var(--teal);
 }
 
-/* Active navigation state */
-.nav-links a.is-active {
-    color: var(--teal-dark);
-    font-weight: 800;
-}
-
+.nav-links a:hover::after,
 .nav-links a.is-active::after {
     transform: scaleX(1);
     transform-origin: left;
 }
 
+/* Active navigation */
+.nav-links a.is-active {
+    color: var(--teal);
+    font-weight: 800;
+}
+
+/* Contact CTA */
 .nav-cta {
-    padding: 10px 18px;
-    border: 1px solid var(--border);
+    padding: 10px 19px;
+
+    border: 1px solid rgba(66, 214, 197, .4);
     border-radius: 30px;
+
+    color: var(--teal);
+    background: rgba(66, 214, 197, .06);
+}
+
+.nav-cta:hover {
+    color: #0B1220;
+    background: var(--teal);
+    border-color: var(--teal);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(66, 214, 197, .16);
+}
+
+/* Mobile navigation */
+@media (max-width: 600px) {
+    .nav {
+        min-height: 66px;
+    }
+
+    .brand {
+        font-size: 25px;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .nav-links a {
+        font-size: 10px;
+    }
+
+    .nav-cta {
+        display: none;
+    }
 }
 
 /* 4. BUTTONS */
@@ -808,14 +872,27 @@ a {
     border: 1px solid var(--border);
     border-radius: 50%;
     background: var(--surface);
-    color: var(--forest);
+    color: var(--text-secondary);
     font-size: 20px;
     cursor: pointer;
     transition:
-        background 0.25s ease,
-        color 0.25s ease,
-        border-color 0.25s ease,
-        opacity 0.25s ease;
+        background .25s ease,
+        color .25s ease,
+        border-color .25s ease,
+        transform .25s ease,
+        opacity .25s ease;
+}
+
+.carousel-button:hover:not(:disabled) {
+    background: var(--teal);
+    color: #0B1220;
+    border-color: var(--teal);
+    transform: translateY(-3px);
+}
+
+.carousel-button:disabled {
+    opacity: .35;
+    cursor: not-allowed;
 }
 
 .carousel-button:hover:not(:disabled) {
