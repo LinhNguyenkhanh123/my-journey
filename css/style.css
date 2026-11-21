@@ -1,4 +1,3 @@
-
 /* ========================================
    1. DESIGN TOKENS
 ======================================== */
@@ -473,12 +472,84 @@ a {
     letter-spacing: 1.5px;
 }
 
+
+/* PROJECT CAROUSEL */
+.project-carousel {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+}
+
 .project-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    display: flex;
     gap: 25px;
     width: 100%;
     min-width: 0;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+
+    padding: 4px 2px 18px;
+    cursor: grab;
+    touch-action: pan-x;
+}
+
+.project-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.project-grid.is-dragging {
+    cursor: grabbing;
+    scroll-snap-type: none;
+    user-select: none;
+}
+
+.project-card {
+    flex: 0 0 calc((100% - 25px) / 2);
+    scroll-snap-align: start;
+}
+
+/* CAROUSEL CONTROLS */
+.project-carousel-controls {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.carousel-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: var(--surface);
+    color: var(--forest);
+    font-size: 20px;
+    cursor: pointer;
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        opacity 0.25s ease;
+}
+
+.carousel-button:hover:not(:disabled) {
+    background: var(--forest);
+    color: white;
+    border-color: var(--forest);
+}
+
+.carousel-button:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
 }
 
 /* PROJECT CARD */
@@ -1000,9 +1071,12 @@ a {
     }
 
     .project-grid {
-        grid-template-columns: 1fr;
-        gap: 18px;
-    }
+       gap: 18px;
+   }
+   
+   .project-card {
+       flex-basis: 100%;
+   }
 
     .project-visual {
         min-height: 165px;
@@ -1092,8 +1166,12 @@ iframe {
     }
 
     .project-grid {
-        grid-template-columns: minmax(0, 1fr);
-    }
+       gap: 18px;
+   }
+   
+   .project-card {
+       flex-basis: 100%;
+   }
 
     .project-card {
         width: 100%;
@@ -1224,19 +1302,28 @@ iframe {
         font-size: 14px;
         line-height: 1.7;
     }
+
     .about-overview h3 {
         font-size: 22px;
     }
+
     .about-overview > p {
         font-size: 15px;
     }
+
     .about-card {
         padding: 22px;
     }
+
     .about-card h3 {
         font-size: 20px;
     }
-   
+
+    .about-card > p:not(.about-card-label) {
+        font-size: 14px;
+    }
+}
+
 /* PROJECT TYPE LABELS */
 .project-type {
     display: flex;
@@ -1261,8 +1348,4 @@ iframe {
     font-weight: 800;
     letter-spacing: 0.6px;
     text-transform: uppercase;
-}
-    .about-card > p:not(.about-card-label) {
-        font-size: 14px;
-    }
 }
