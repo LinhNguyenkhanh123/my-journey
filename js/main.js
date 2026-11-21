@@ -320,6 +320,59 @@ function initializeProjectCarousels() {
     });
 }
 
+/* 5.2. SCROLL REVEAL */
+function initializeScrollReveal() {
+    const elements = document.querySelectorAll(
+        ".section-heading, " +
+        ".about-overview, " +
+        ".about-card, " +
+        ".project-card, " +
+        ".contact-content, " +
+        ".contact-links"
+    );
+
+    // Respect accessibility preferences
+    const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (
+        reduceMotion ||
+        !("IntersectionObserver" in window)
+    ) {
+        return;
+    }
+
+    const observer = new IntersectionObserver(
+        (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-visible");
+                    observer.unobserve(entry.target);
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.12,
+            rootMargin: "0px 0px -35px 0px"
+        }
+    );
+
+    elements.forEach((element, index) => {
+        element.classList.add("reveal");
+        // Create a subtle stagger effect
+        const delay = (index % 5) * 80;
+        element.style.setProperty(
+            "--reveal-delay",
+            `${delay}ms`
+        );
+        observer.observe(element);
+
+    });
+}
+
 // 6. PREPARE README CONTENT
 function prepareReadmeHTML(html, project) {
     const parser = new DOMParser();
