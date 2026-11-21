@@ -612,6 +612,56 @@ revealElements.forEach((element) => {
     revealObserver.observe(element);
 });
 
+// ACTIVE NAVIGATION ON SCROLL
+function initializeActiveNavigation() {
+    const navLinks = document.querySelectorAll(
+        ".nav-links a[href^='#']"
+    );
+
+    const sections = document.querySelectorAll(
+        "#about, #projects, #contact"
+    );
+
+    if (
+        !navLinks.length ||
+        !sections.length ||
+        !("IntersectionObserver" in window)
+    ) {
+        return;
+    }
+
+    const observer = new IntersectionObserver(
+        entries => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                }
+
+                const activeId = entry.target.id;
+
+                navLinks.forEach(link => {
+                    const isActive =
+                        link.getAttribute("href") === `#${activeId}`;
+
+                    link.classList.toggle("is-active", isActive);
+
+                    if (isActive) {
+                        link.setAttribute("aria-current", "location");
+                    } else {
+                        link.removeAttribute("aria-current");
+                    }
+                });
+            });
+        },
+        {
+            rootMargin: "-25% 0px -60% 0px",
+            threshold: 0
+        }
+    );
+
+    sections.forEach(section => observer.observe(section));
+}
+
 // INITIALIZE WEBSITE
 renderProjects();
 initializeProjectCarousels();
