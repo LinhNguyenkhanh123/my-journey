@@ -1,6 +1,4 @@
-// ========================================
 // 1. DOM ELEMENTS
-// ========================================
 const academicContainer = document.getElementById("academic-projects");
 const personalContainer = document.getElementById("personal-projects");
 const modal = document.getElementById("project-modal");
@@ -15,9 +13,7 @@ const modalGithub = document.getElementById("modal-github");
 let activeReadmeRequest = 0;
 let previousFocusedElement = null;
 
-// ========================================
 // 2. HELPER FUNCTIONS
-// ========================================
 function escapeHTML(value) {
     return String(value ?? "").replace(/[&<>"']/g, character => {
         const entities = {
@@ -32,9 +28,7 @@ function escapeHTML(value) {
     });
 }
 
-// ========================================
 // 3. PROJECT VISUAL THEMES
-// ========================================
 const projectThemes = {
     "vietjet-analysis": {
         background: "#E8E5D9",
@@ -77,9 +71,7 @@ const projectThemes = {
     }
 };
 
-// ========================================
 // 4. CREATE PROJECT CARDS
-// ========================================
 function createProjectCard(project, index) {
     const toolsHTML = project.tools
         .map(tool => `
@@ -152,7 +144,6 @@ function createProjectCard(project, index) {
 }
 
 // 5. RENDER PROJECTS
-
 function renderProjects() {
     if (!academicContainer || !personalContainer) {
         console.error("Project containers not found.");
@@ -163,7 +154,6 @@ function renderProjects() {
     const academicProjects = projects.filter(
         project => project.category === "Academic Project"
     );
-
     const personalProjects = projects.filter(
         project => project.category === "Personal Project"
     );
@@ -172,7 +162,6 @@ function renderProjects() {
     academicContainer.innerHTML = academicProjects
         .map(createProjectCard)
         .join("");
-
     personalContainer.innerHTML = personalProjects
         .map(createProjectCard)
         .join("");
@@ -181,25 +170,20 @@ function renderProjects() {
     const totalCount = document.getElementById(
         "total-project-count"
     );
-
     const academicCount = document.getElementById(
         "academic-project-count"
     );
-
     const personalCount = document.getElementById(
         "personal-project-count"
     );
-
     if (totalCount) {
         totalCount.textContent =
             String(projects.length).padStart(2, "0");
     }
-
     if (academicCount) {
         academicCount.textContent =
             String(academicProjects.length).padStart(2, "0");
     }
-
     if (personalCount) {
         personalCount.textContent =
             String(personalProjects.length).padStart(2, "0");
@@ -209,16 +193,13 @@ function renderProjects() {
     const academicHeadingCount = document.getElementById(
         "academic-heading-count"
     );
-
     const personalHeadingCount = document.getElementById(
         "personal-heading-count"
     );
-
     if (academicHeadingCount) {
         academicHeadingCount.textContent =
             `${String(academicProjects.length).padStart(2, "0")} PROJECTS`;
     }
-
     if (personalHeadingCount) {
         personalHeadingCount.textContent =
             `${String(personalProjects.length).padStart(2, "0")} PROJECTS`;
@@ -288,7 +269,6 @@ function initializeProjectCarousels() {
         let startX = 0;
         let startScrollLeft = 0;
         let lastDragTime = 0;
-
         grid.addEventListener("pointerdown", event => {
             if (event.pointerType !== "mouse" || event.button !== 0) {
                 return;
@@ -323,7 +303,6 @@ function initializeProjectCarousels() {
             isDragging = false;
             grid.classList.remove("is-dragging");
         }
-
         grid.addEventListener("pointerup", stopDragging);
         grid.addEventListener("pointercancel", stopDragging);
 
@@ -337,15 +316,11 @@ function initializeProjectCarousels() {
 
         // Recalculate button states when the layout changes
         window.addEventListener("resize", updateButtons);
-
         updateButtons();
     });
 }
 
-// ========================================
 // 6. PREPARE README CONTENT
-// ========================================
-
 function prepareReadmeHTML(html, project) {
     const parser = new DOMParser();
 
@@ -355,7 +330,6 @@ function prepareReadmeHTML(html, project) {
     );
 
     const repositoryURL = new URL(project.github);
-
     const pathParts = repositoryURL.pathname
         .split("/")
         .filter(Boolean);
@@ -370,14 +344,12 @@ function prepareReadmeHTML(html, project) {
 
     const rawBase =
         `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/`;
-
     const githubBase =
         `https://github.com/${owner}/${repo}/blob/${branch}/`;
 
     // Fix relative image paths
     parsedDocument.querySelectorAll("img").forEach(image => {
         const source = image.getAttribute("src");
-
         if (
             source &&
             !source.startsWith("http") &&
@@ -397,7 +369,6 @@ function prepareReadmeHTML(html, project) {
     // Fix relative links
     parsedDocument.querySelectorAll("a").forEach(link => {
         const href = link.getAttribute("href");
-
         if (
             href &&
             !href.startsWith("http") &&
@@ -421,11 +392,7 @@ function prepareReadmeHTML(html, project) {
     return parsedDocument.body.innerHTML;
 }
 
-
-// ========================================
 // 7. OPEN PROJECT DETAILS
-// ========================================
-
 async function openProject(projectId) {
     const project = projects.find(
         item => item.id === projectId
