@@ -355,8 +355,8 @@ function initializeScrollReveal() {
 
         },
         {
-            threshold: 0.25,
-            rootMargin: "0px 0px -80px 0px"
+            threshold: 0.12,
+            rootMargin: "0px 0px -35px 0px"
         }
     );
 
