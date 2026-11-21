@@ -29,7 +29,7 @@ const projects = [
         category: "Personal Project",
         type: "Data Analysis",
         description:
-            "An exploration of global sales performance through business metrics, interactive dashboards and actionable insights.",
+            "A Power BI dashboard that analyzes global business performance by market, product category and time, and provides recommendations on market expansion.",
         tools: ["Data Analysis", "Power BI"],
         github: "https://github.com/LinhNguyenkhanh123/global_performance",
         readme: "https://raw.githubusercontent.com/LinhNguyenkhanh123/global_performance/main/README.md"
@@ -40,7 +40,7 @@ const projects = [
         category: "Personal Project",
         type: "Data Analysis",
         description:
-            "A financial analysis project focused on evaluating business performance and translating financial data into insights.",
+            "A Power BI dashboard that analyzes revenue, expenses and profitability across business lines to identify growth drivers, cost pressures and priority actions.",
         tools: ["Data Analysis", "Power BI"],
         github: "https://github.com/LinhNguyenkhanh123/financial_analysis",
         readme: "https://raw.githubusercontent.com/LinhNguyenkhanh123/financial_analysis/main/README.md"
@@ -51,7 +51,7 @@ const projects = [
         category: "Personal Project",
         type: "Data Analysis",
         description:
-            "A data analytics pipeline that organizes business data through a structured medallion architecture for reporting and analysis.",
+            "A Power BI dashboard for an FMCG distributor that tracks revenue against changing sales plans and analyzes customers, products and sales team performance.",
         tools: ["Python", "PostgreSQL", "Power BI"],
         github: "https://github.com/LinhNguyenkhanh123/vietdist_analytics",
         readme: "https://raw.githubusercontent.com/LinhNguyenkhanh123/vietdist_analytics/main/README.md"
@@ -62,7 +62,7 @@ const projects = [
         category: "Personal Project",
         type: "Data Analysis",
         description:
-            "A merchant churn prediction project involving data preparation, feature engineering and machine learning workflows.",
+            "An end-to-end machine learning project that predicts Shopify merchant churn, identifies at-risk merchants, and prioritizes customer retention efforts through revenue-based risk analysis.",
         tools: ["Python", "SQL", "DuckDB", "Machine Learning"],
         github: "https://github.com/LinhNguyenkhanh123/churn-prediction",
         readme: "https://raw.githubusercontent.com/LinhNguyenkhanh123/churn-prediction/main/README.md"
@@ -73,7 +73,7 @@ const projects = [
         category: "Personal Project",
         type: "Data Analysis",
         description:
-            "An analysis of ads data to explore performance patterns and support data-driven decisions.",
+            "A Power BI dashboard analyzing ad spend and sales performance for a fashion brand, identifying wasteful campaigns and high-potential products to improve ROAS.",
         tools: ["Data Analysis", "Power BI"],
         github: "https://github.com/LinhNguyenkhanh123/marketing_sales_analysis",
         readme: "https://raw.githubusercontent.com/LinhNguyenkhanh123/marketing_sales_analysis/main/README.md"
@@ -84,7 +84,7 @@ const projects = [
         category: "Personal Project",
         type: "Data Analysis",
         description:
-            "A relational database project designed to organize workforce information and support structured HR data management.",
+            "A Power BI HR analytics dashboard covering workforce size, turnover, satisfaction/engagement, absenteeism, payroll cost and recruitment sources.",
         tools: ["Data Analysis", "Power BI"],
         github: "https://github.com/LinhNguyenkhanh123/hr_workforce_database",
         readme: "https://raw.githubusercontent.com/LinhNguyenkhanh123/hr_workforce_database/main/README.md"
