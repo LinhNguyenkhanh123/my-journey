@@ -363,7 +363,7 @@ function initializeScrollReveal() {
     elements.forEach((element, index) => {
         element.classList.add("reveal");
         // Create a subtle stagger effect
-        const delay = (index % 5) * 80;
+        const delay = (index % 4) * 110;
         element.style.setProperty(
             "--reveal-delay",
             `${delay}ms`
