@@ -564,6 +564,23 @@ a {
     box-shadow: 0 18px 45px rgba(24, 60, 59, 0.08);
 }
 
+/* Project visual hover interaction */
+.project-card:hover .project-visual::before {
+    transform: translate(-12px, 10px) scale(1.06);
+}
+.project-card:hover .project-visual::after {
+    transform: translate(-7px, 6px) scale(1.08);
+}
+
+/* Project action interaction */
+.project-link span {
+    display: inline-block;
+    transition: transform .25s ease;
+}
+.project-link:hover span {
+    transform: translate(4px, -4px);
+}
+
 .project-visual {
     min-height: 190px;
     padding: 25px;
@@ -586,6 +603,7 @@ a {
     right: -30px;
     border: 1px solid rgba(23, 111, 102, 0.25);
     border-radius: 50%;
+    transition: transform .65s var(--ease);
 }
 
 .project-visual::after {
@@ -597,6 +615,7 @@ a {
     right: -5px;
     border: 1px solid rgba(23, 111, 102, 0.2);
     border-radius: 50%;
+    transition: transform .65s var(--ease);
 }
 
 .project-visual-label {
