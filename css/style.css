@@ -1610,3 +1610,41 @@ iframe {
         transition: none;
     }
 }
+
+/* 13. HERO ENTRANCE ANIMATION */
+@keyframes heroFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-content {
+    animation: heroFadeUp .85s var(--ease) both;
+}
+
+.hero-dashboard {
+    animation: heroFadeUp .95s var(--ease) .16s both;
+}
+
+/* 14. SCROLL REVEAL */
+.reveal {
+    opacity: 0;
+    transform: translateY(26px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s var(--ease);
+
+    transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
