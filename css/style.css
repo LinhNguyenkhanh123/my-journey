@@ -1725,9 +1725,8 @@ a {
         animation-duration: 0.01ms !important;
     }
 }
-/* ========================================
-   13. FINAL TYPOGRAPHY & OVERFLOW FIX
-======================================== */
+
+/* 13. FINAL TYPOGRAPHY & OVERFLOW FIX */
 html,
 body {
     max-width: 100%;
