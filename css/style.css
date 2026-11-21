@@ -608,62 +608,130 @@ a {
     transform: translate(4px, -4px);
 }
 
+
+/* PROJECT VISUAL — MINIMAL EDITORIAL */
 .project-visual {
-    min-height: 190px;
-    padding: 25px;
     position: relative;
-    overflow: hidden;
-
+    isolation: isolate;
+    min-height: 225px;
     display: flex;
-    align-items: end;
+    align-items: flex-end;
     justify-content: space-between;
-
-    background: var(--visual-bg, #DCEAE4);
+    gap: 12px;
+    padding: 25px 27px;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            circle at 75% 25%,
+            rgba(255, 255, 255, .65),
+            transparent 48%
+        ),
+        var(--visual-bg, #DCEAE4);
 }
 
-.project-visual::before {
-    content: "";
+/* SVG is a decorative background layer */
+.project-visual .project-artwork {
     position: absolute;
-    width: 180px;
-    height: 180px;
-    top: -80px;
-    right: -30px;
-    border: 1px solid rgba(23, 111, 102, 0.25);
-    border-radius: 50%;
-    transition: transform .65s var(--ease);
+    z-index: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 12px 18px;
+    pointer-events: none;
+    overflow: visible;
 }
 
-.project-visual::after {
-    content: "";
-    position: absolute;
-    width: 130px;
-    height: 130px;
-    top: -45px;
-    right: -5px;
-    border: 1px solid rgba(23, 111, 102, 0.2);
-    border-radius: 50%;
-    transition: transform .65s var(--ease);
+/* Grid */
+.project-visual .project-artwork .art-grid path {
+    fill: none !important;
+    stroke: rgba(36, 76, 69, .18) !important;
+    stroke-width: 1.2;
+    stroke-dasharray: 3 6;
+}
+
+/* Data bars */
+.project-visual .project-artwork .art-bars rect,
+.project-visual .project-artwork .art-blocks rect {
+    fill: rgba(23, 111, 102, .22) !important;
+    stroke: #176F66 !important;
+    stroke-width: 1.2;
+}
+
+/* Chart lines */
+.project-visual .project-artwork .art-line {
+    fill: none !important;
+    stroke: #176F66 !important;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Data points */
+.project-visual .project-artwork .art-dot {
+    fill: #176F66 !important;
+    stroke: #F5F3ED !important;
+    stroke-width: 3;
+}
+
+.project-visual .project-artwork .art-center {
+    fill: #176F66 !important;
+    stroke: rgba(23, 111, 102, .2) !important;
+    stroke-width: 9;
+}
+
+/* Banking circles */
+.project-visual .project-artwork .art-orbits circle {
+    fill: none !important;
+    stroke: rgba(23, 111, 102, .4) !important;
+    stroke-width: 1.4;
+}
+
+/* Network connections */
+.project-visual .project-artwork .art-connections path {
+    fill: none !important;
+    stroke: rgba(23, 111, 102, .55) !important;
+    stroke-width: 1.5;
+}
+
+/* Network nodes */
+.project-visual .project-artwork .art-nodes circle {
+    fill: #DCEAE4 !important;
+    stroke: #176F66 !important;
+    stroke-width: 2;
+}
+
+/* Keep text above SVG */
+.project-visual .project-visual-label,
+.project-visual .project-visual-number {
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+    white-space: nowrap;
 }
 
 .project-visual-label {
-    position: relative;
-    z-index: 1;
     color: var(--teal-dark);
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1.8px;
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: .16em;
     text-transform: uppercase;
 }
 
 .project-visual-number {
-    position: relative;
-    z-index: 1;
+    display: inline-block;
+    min-width: 2ch;
+    color: rgba(24, 60, 59, .3);
     font-family: var(--font-display);
-    font-size: 62px;
+    font-size: 66px;
+    font-weight: 800;
+    letter-spacing: -.09em;
     line-height: 1;
-    color: rgba(24, 60, 59, 0.22);
+    white-space: nowrap;
 }
-
 .project-info {
     padding: 25px 27px 28px;
 }
