@@ -1349,3 +1349,67 @@ iframe {
     letter-spacing: 0.6px;
     text-transform: uppercase;
 }
+
+/* ========================================
+   PROJECT CAROUSEL - FINAL ADJUSTMENTS
+======================================== */
+/* Carousel layout */
+.project-carousel {
+    width: 100%;
+    min-width: 0;
+}
+
+.project-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 25px;
+
+    width: 100%;
+    min-width: 0;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+}
+
+.project-grid::-webkit-scrollbar {
+    display: none;
+}
+
+/* Prevent project cards from shrinking */
+.project-grid .project-card {
+    flex: 0 0 calc((100% - 25px) / 2);
+    min-width: 0;
+    scroll-snap-align: start;
+}
+
+/* Center navigation arrows */
+.project-carousel-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+
+    margin-top: 22px;
+    margin-bottom: 35px;
+}
+
+/* Add more breathing room before Get in touch */
+.projects-section {
+    padding-bottom: 130px;
+}
+
+/* Tablet and mobile: one card at a time */
+@media (max-width: 850px) {
+    .project-grid {
+        gap: 18px;
+    }
+
+    .project-grid .project-card {
+        flex-basis: 100%;
+    }
+}
