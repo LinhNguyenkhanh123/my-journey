@@ -1589,7 +1589,6 @@ iframe {
 }
 
 /* SCROLL REVEAL ANIMATION */
-
 .reveal {
     opacity: 0;
     transform: translateY(24px);
