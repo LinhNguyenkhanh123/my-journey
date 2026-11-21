@@ -151,16 +151,15 @@ function createProjectCard(project, index) {
     `;
 }
 
-
-// ========================================
 // 5. RENDER PROJECTS
-// ========================================
+
 function renderProjects() {
     if (!academicContainer || !personalContainer) {
         console.error("Project containers not found.");
         return;
     }
 
+    // Separate projects by category
     const academicProjects = projects.filter(
         project => project.category === "Academic Project"
     );
@@ -169,6 +168,7 @@ function renderProjects() {
         project => project.category === "Personal Project"
     );
 
+    // Render project cards
     academicContainer.innerHTML = academicProjects
         .map(createProjectCard)
         .join("");
@@ -177,57 +177,55 @@ function renderProjects() {
         .map(createProjectCard)
         .join("");
 
-    // Update project counts automatically
+    // Update dashboard counts
     const totalCount = document.getElementById(
         "total-project-count"
     );
-    
+
     const academicCount = document.getElementById(
         "academic-project-count"
     );
-    
+
     const personalCount = document.getElementById(
         "personal-project-count"
     );
-    
-    // Dashboard counts
+
     if (totalCount) {
         totalCount.textContent =
             String(projects.length).padStart(2, "0");
     }
-    
+
     if (academicCount) {
         academicCount.textContent =
             String(academicProjects.length).padStart(2, "0");
     }
-    
+
     if (personalCount) {
         personalCount.textContent =
             String(personalProjects.length).padStart(2, "0");
     }
-    
-    // Project section heading counts
+
+    // Update project section heading counts
     const academicHeadingCount = document.getElementById(
         "academic-heading-count"
     );
-    
+
     const personalHeadingCount = document.getElementById(
         "personal-heading-count"
     );
-    
+
     if (academicHeadingCount) {
         academicHeadingCount.textContent =
             `${String(academicProjects.length).padStart(2, "0")} PROJECTS`;
     }
-    
+
     if (personalHeadingCount) {
         personalHeadingCount.textContent =
             `${String(personalProjects.length).padStart(2, "0")} PROJECTS`;
     }
+}
 
-// ========================================
 // 5.1. INITIALIZE PROJECT CAROUSELS
-// ========================================
 function initializeProjectCarousels() {
     const carousels = document.querySelectorAll(
         ".project-carousel"
