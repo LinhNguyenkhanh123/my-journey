@@ -5,19 +5,25 @@
     --font-body: "Manrope", sans-serif;
     --font-display: "Manrope", sans-serif;
 
-    /* Main colors */
-    --bg: #F5F3ED;
-    --text: #183C3B;
-    --text-secondary: #526B67;
-    --muted: #657875;
-    --teal: #176F66;
-    --teal-dark: #10574F;
-    --dark: #183C3B;
+    /* Main colors - DARK TECH */
+    --bg: #0B1220;
+    --text: #DCE8EF;
+    --text-secondary: #B3C1CE;
+    --muted: #8798A9;
+
+    --teal: #42D6C5;
+    --teal-dark: #176F66;
+    --dark: #EAF2F5;
 
     /* Surface colors */
-    --surface: #FFFFFF;
-    --surface-soft: #EAEFE9;
-    --border: #D5DED7;
+    --surface: #111D2D;
+    --surface-soft: #162536;
+    --border: rgba(148, 190, 196, .16);
+
+    /* Additional dark theme colors */
+    --surface-hover: #1B3042;
+    --glow: rgba(66, 214, 197, .22);
+    --grid-line: rgba(66, 214, 197, .07);
 
     /* Layout */
     --container: 1200px;
@@ -1738,7 +1744,6 @@ iframe {
 }
 
 /* HIGHLIGHT BOXES */
-
 .about-highlights {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2434,185 +2439,389 @@ iframe {
     }
 }
 
+
 /* ========================================
-   AMBIENT GRADIENT BACKGROUND
+   DARK TECH - AMBIENT BACKGROUND
 ======================================== */
 
-/* Base layer */
+/* Base sections */
 .hero-section,
 .about-section,
 .projects-section,
 .contact-section {
     position: relative;
     isolation: isolate;
+    overflow: hidden;
 }
 
-/* Keep section content above ambient effects */
+/* Keep content above background effects */
 .hero-section > .container,
 .about-section > .container,
 .projects-section > .container,
 .contact-section > .container {
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
-/* HERO */
+/* ========================================
+   01. HERO - DIGITAL ORBIT
+======================================== */
+
 .hero-section {
     background:
-        linear-gradient(135deg, #F7F5EE 0%, #F4F1E8 55%, #EEF1E8 100%);
+        radial-gradient(
+            ellipse at 75% 35%,
+            rgba(23, 111, 102, .18),
+            transparent 42%
+        ),
+        linear-gradient(
+            135deg,
+            #0B1220 0%,
+            #101D2C 55%,
+            #0B1725 100%
+        );
 }
 
 .hero-section::before {
     content: "";
     position: absolute;
-    z-index: -1;
-    inset: -12%;
+    z-index: 0;
+    inset: -15%;
     pointer-events: none;
 
     background:
+        /* Orbital rings */
         radial-gradient(
-            ellipse at 78% 28%,
-            rgba(23, 111, 102, .19),
-            transparent 32%
+            circle at 78% 45%,
+            transparent 0 145px,
+            rgba(66, 214, 197, .13) 146px 147px,
+            transparent 148px 190px,
+            rgba(66, 214, 197, .08) 191px 192px,
+            transparent 193px 240px,
+            rgba(66, 214, 197, .05) 241px 242px,
+            transparent 243px
         ),
+
+        /* Main glow */
         radial-gradient(
-            ellipse at 12% 80%,
-            rgba(181, 203, 177, .28),
+            ellipse at 78% 42%,
+            rgba(66, 214, 197, .20),
             transparent 35%
+        ),
+
+        /* Secondary glow */
+        radial-gradient(
+            ellipse at 12% 85%,
+            rgba(23, 111, 102, .22),
+            transparent 38%
+        ),
+
+        /* Technical grid */
+        linear-gradient(
+            rgba(66, 214, 197, .055) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(66, 214, 197, .055) 1px,
+            transparent 1px
         );
 
-    transform: translate3d(0, var(--scroll-shift, 0px), 0);
-    animation: ambientFloat 16s ease-in-out infinite alternate;
+    background-size:
+        auto,
+        auto,
+        auto,
+        48px 48px,
+        48px 48px;
+
+    transform:
+        translate3d(0, var(--scroll-shift, 0px), 0);
+
+    animation: heroTechMotion 24s ease-in-out infinite alternate;
 }
 
-/* ABOUT */
+/* ========================================
+   02. ABOUT - ABSTRACT NETWORK
+======================================== */
+
 .about-section {
     background:
-        linear-gradient(125deg, #EEF1E9 0%, #F3F2E9 55%, #E9EEE7 100%);
+        radial-gradient(
+            ellipse at 15% 30%,
+            rgba(23, 111, 102, .14),
+            transparent 42%
+        ),
+        linear-gradient(
+            135deg,
+            #111D2D 0%,
+            #142333 50%,
+            #101C2A 100%
+        );
 }
 
 .about-section::before {
     content: "";
     position: absolute;
-    z-index: -1;
-    inset: -12%;
+    z-index: 0;
+    inset: -15%;
     pointer-events: none;
 
     background:
+        /* Abstract circles */
         radial-gradient(
-            circle at 12% 25%,
-            rgba(181, 203, 177, .30),
-            transparent 30%
+            circle at 88% 55%,
+            transparent 0 110px,
+            rgba(66, 214, 197, .10) 111px 112px,
+            transparent 113px 155px,
+            rgba(66, 214, 197, .07) 156px 157px,
+            transparent 158px
         ),
+
+        /* Dot matrix */
         radial-gradient(
-            ellipse at 85% 75%,
-            rgba(23, 111, 102, .13),
-            transparent 35%
+            circle,
+            rgba(66, 214, 197, .25) 1px,
+            transparent 1.8px
+        ),
+
+        /* Ambient glow */
+        radial-gradient(
+            ellipse at 85% 70%,
+            rgba(23, 111, 102, .20),
+            transparent 38%
         );
 
-    transform: translate3d(0, var(--scroll-shift, 0px), 0);
-    animation: ambientFloat 20s ease-in-out infinite alternate-reverse;
+    background-size:
+        auto,
+        22px 22px,
+        auto;
+
+    transform:
+        translate3d(0, var(--scroll-shift, 0px), 0);
+
+    animation: aboutTechMotion 28s ease-in-out infinite alternate;
 }
 
-/* PROJECTS */
+/* ========================================
+   03. PROJECTS - DATA GRID
+======================================== */
+
 .projects-section {
     background:
-        linear-gradient(145deg, #F7F5EE 0%, #F0F2EB 50%, #F4F1E8 100%);
+        radial-gradient(
+            ellipse at 85% 15%,
+            rgba(23, 111, 102, .15),
+            transparent 38%
+        ),
+        linear-gradient(
+            145deg,
+            #0B1220 0%,
+            #101B2A 55%,
+            #0B1421 100%
+        );
 }
 
 .projects-section::before {
     content: "";
     position: absolute;
-    z-index: -1;
-    inset: -12%;
+    z-index: 0;
+    inset: -15%;
     pointer-events: none;
 
     background:
+        /* Data points */
         radial-gradient(
-            ellipse at 90% 15%,
-            rgba(23, 111, 102, .13),
-            transparent 32%
+            circle,
+            rgba(66, 214, 197, .45) 1.2px,
+            transparent 2px
         ),
+
+        /* Grid */
+        linear-gradient(
+            rgba(66, 214, 197, .055) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(66, 214, 197, .055) 1px,
+            transparent 1px
+        ),
+
+        /* Glow */
         radial-gradient(
-            ellipse at 10% 85%,
-            rgba(181, 203, 177, .23),
-            transparent 36%
+            ellipse at 15% 80%,
+            rgba(23, 111, 102, .17),
+            transparent 40%
         );
 
-    transform: translate3d(0, var(--scroll-shift, 0px), 0);
-    animation: ambientFloat 18s ease-in-out infinite alternate;
+    background-size:
+        85px 85px,
+        45px 45px,
+        45px 45px,
+        auto;
+
+    transform:
+        translate3d(0, var(--scroll-shift, 0px), 0);
+
+    animation: projectsTechMotion 30s linear infinite;
 }
 
-/* CONTACT */
+/* ========================================
+   04. CONTACT - TEAL ATMOSPHERE
+======================================== */
+
 .contact-section {
     background:
-        linear-gradient(125deg, #123F3B 0%, #176F66 55%, #205C52 100%);
+        radial-gradient(
+            ellipse at 75% 25%,
+            rgba(66, 214, 197, .18),
+            transparent 38%
+        ),
+        linear-gradient(
+            125deg,
+            #102C35 0%,
+            #123F43 55%,
+            #0B222E 100%
+        );
 }
 
 .contact-section::before {
     content: "";
     position: absolute;
-    z-index: -1;
+    z-index: 0;
     inset: -15%;
     pointer-events: none;
 
     background:
         radial-gradient(
-            ellipse at 80% 20%,
-            rgba(194, 222, 196, .20),
-            transparent 34%
+            circle at 80% 50%,
+            transparent 0 135px,
+            rgba(66, 214, 197, .15) 136px 137px,
+            transparent 138px 185px,
+            rgba(66, 214, 197, .08) 186px 187px,
+            transparent 188px
         ),
+
         radial-gradient(
-            ellipse at 15% 85%,
-            rgba(8, 45, 42, .38),
-            transparent 38%
+            ellipse at 20% 80%,
+            rgba(66, 214, 197, .13),
+            transparent 40%
         );
 
-    transform: translate3d(0, var(--scroll-shift, 0px), 0);
-    animation: ambientFloat 17s ease-in-out infinite alternate-reverse;
+    transform:
+        translate3d(0, var(--scroll-shift, 0px), 0);
+
+    animation: contactTechMotion 22s ease-in-out infinite alternate;
 }
 
-/* AMBIENT ANIMATION */
-@keyframes ambientFloat {
-    0% {
-        background-position: 0% 0%, 100% 100%;
+/* DYNAMIC ANIMATIONS */
+@keyframes heroTechMotion {
+    from {
+        background-position:
+            0 0,
+            0 0,
+            0 0,
+            0 0,
+            0 0;
     }
 
-    50% {
-        background-position: 12% 18%, 85% 75%;
-    }
-
-    100% {
-        background-position: 25% 5%, 70% 90%;
+    to {
+        background-position:
+            35px -20px,
+            20px 15px,
+            -15px 20px,
+            24px 0,
+            0 24px;
     }
 }
 
-/* MOUSE INTERACTIVE GLOW */
+@keyframes aboutTechMotion {
+    from {
+        background-position:
+            0 0,
+            0 0,
+            0 0;
+    }
+
+    to {
+        background-position:
+            -25px 30px,
+            18px 22px,
+            25px -15px;
+    }
+}
+
+@keyframes projectsTechMotion {
+    from {
+        background-position:
+            0 0,
+            0 0,
+            0 0,
+            0 0;
+    }
+
+    to {
+        background-position:
+            85px 85px,
+            45px 45px,
+            45px 45px,
+            25px -20px;
+    }
+}
+
+@keyframes contactTechMotion {
+    from {
+        background-position:
+            0 0,
+            0 0;
+    }
+
+    to {
+        background-position:
+            30px -20px,
+            -20px 25px;
+    }
+}
+
+/*  MOUSE INTERACTIVE GLOW */
 .hero-section::after,
 .about-section::after,
 .projects-section::after,
 .contact-section::after {
     content: "";
     position: absolute;
-    z-index: 0;
+    z-index: 1;
     inset: 0;
     pointer-events: none;
+
     background: radial-gradient(
         circle at var(--pointer-x, 50%) var(--pointer-y, 50%),
-        rgba(23, 111, 102, .10),
-        transparent 28%
+        rgba(66, 214, 197, .12),
+        transparent 30%
     );
 
-    opacity: .75;
+    opacity: .8;
     transition: opacity .4s ease;
 }
 
-.contact-section::after {
-    background: radial-gradient(
-        circle at var(--pointer-x, 50%) var(--pointer-y, 50%),
-        rgba(207, 230, 205, .13),
-        transparent 30%
-    );
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-section::before,
+    .about-section::before,
+    .projects-section::before,
+    .contact-section::before {
+        animation: none;
+    }
+
+    .hero-section::after,
+    .about-section::after,
+    .projects-section::after,
+    .contact-section::after {
+        transition: none;
+    }
 }
 
 /* ACCESSIBILITY */
