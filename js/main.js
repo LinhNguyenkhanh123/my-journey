@@ -71,7 +71,7 @@ const projectThemes = {
     }
 };
 
-// 4. CREATE PROJECT CARDS
+// 4. PROJECT CARDS
 function createProjectCard(project, index) {
     const toolsHTML = project.tools
         .map(tool => `
