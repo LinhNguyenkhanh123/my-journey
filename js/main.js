@@ -666,3 +666,4 @@ function initializeActiveNavigation() {
 renderProjects();
 initializeProjectCarousels();
 initializeScrollReveal();
+initializeActiveNavigation();
