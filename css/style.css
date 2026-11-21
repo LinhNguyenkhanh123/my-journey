@@ -944,7 +944,6 @@ a {
     transform: translate(4px, -4px);
 }
 
-
 /* PROJECT VISUAL — MINIMAL EDITORIAL */
 .project-visual {
     position: relative;
@@ -2910,4 +2909,67 @@ iframe {
         animation: none;
         transform: none;
     }
+}
+
+/* GLOBAL DARK THEME — TEXT COLORS= */
+body {
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+/* Main headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--dark);
+}
+
+/* General content */
+p,
+li,
+.about-content,
+.about-content p,
+.project-description {
+    color: var(--text-secondary);
+}
+
+/* Section headings */
+.section-title,
+.section-heading,
+.hero h1 {
+    color: var(--dark);
+}
+
+/* Supporting text */
+.section-subtitle,
+.section-description,
+.hero-description,
+.caption,
+.metadata {
+    color: var(--muted);
+}
+
+/* Links */
+a {
+    color: inherit;
+}
+
+a:hover {
+    color: var(--teal);
+}
+
+/* Highlighted text */
+strong,
+.highlight {
+    color: var(--teal);
+}
+
+/* Small labels */
+.eyebrow,
+.section-label,
+.dashboard-caption {
+    color: var(--teal);
 }
