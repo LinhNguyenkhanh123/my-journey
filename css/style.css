@@ -2539,10 +2539,7 @@ iframe {
     z-index: 2;
 }
 
-/* ========================================
-   01. HERO - DIGITAL ORBIT
-======================================== */
-
+/* 01. HERO - DIGITAL ORBIT */
 .hero-section {
     background:
         radial-gradient(
@@ -2564,7 +2561,6 @@ iframe {
     z-index: 0;
     inset: -15%;
     pointer-events: none;
-
     background:
         /* Orbital rings */
         radial-gradient(
@@ -2619,7 +2615,6 @@ iframe {
 /* ========================================
    02. ABOUT - ABSTRACT NETWORK
 ======================================== */
-
 .about-section {
     background:
         radial-gradient(
@@ -2641,47 +2636,33 @@ iframe {
     z-index: 0;
     inset: -15%;
     pointer-events: none;
-
     background:
-        /* Abstract circles */
+        /* Asymmetric orbital curves */
         radial-gradient(
             circle at 88% 55%,
-            transparent 0 110px,
-            rgba(66, 214, 197, .10) 111px 112px,
-            transparent 113px 155px,
-            rgba(66, 214, 197, .07) 156px 157px,
-            transparent 158px
+            transparent 0 125px,
+            rgba(66, 214, 197, .10) 126px 127px,
+            transparent 128px 185px,
+            rgba(66, 214, 197, .06) 186px 187px,
+            transparent 188px
         ),
 
-        /* Dot matrix */
-        radial-gradient(
-            circle,
-            rgba(66, 214, 197, .25) 1px,
-            transparent 1.8px
-        ),
-
-        /* Ambient glow */
+        /* Soft ambient light */
         radial-gradient(
             ellipse at 85% 70%,
-            rgba(23, 111, 102, .20),
-            transparent 38%
+            rgba(66, 214, 197, .12),
+            transparent 32%
+        ),
+
+        /* Secondary blurred shape */
+        radial-gradient(
+            ellipse at 12% 18%,
+            rgba(52, 116, 153, .10),
+            transparent 35%
         );
-
-    background-size:
-        auto,
-        22px 22px,
-        auto;
-
-    transform:
-        translate3d(0, var(--scroll-shift, 0px), 0);
-
-    animation: aboutTechMotion 28s ease-in-out infinite alternate;
 }
 
-/* ========================================
-   03. PROJECTS - DATA GRID
-======================================== */
-
+/* 03. PROJECTS - DATA GRID */
 .projects-section {
     background:
         radial-gradient(
@@ -2697,6 +2678,7 @@ iframe {
         );
 }
 
+
 .projects-section::before {
     content: "";
     position: absolute;
@@ -2705,47 +2687,33 @@ iframe {
     pointer-events: none;
 
     background:
-        /* Data points */
+        /* Large off-center abstract ring */
         radial-gradient(
-            circle,
-            rgba(66, 214, 197, .45) 1.2px,
-            transparent 2px
+            circle at 84% 25%,
+            transparent 0 155px,
+            rgba(66, 214, 197, .09) 156px 157px,
+            transparent 158px 225px,
+            rgba(66, 214, 197, .045) 226px 227px,
+            transparent 228px
         ),
 
-        /* Grid */
+        /* Diagonal light accent */
         linear-gradient(
-            rgba(66, 214, 197, .055) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(66, 214, 197, .055) 1px,
-            transparent 1px
+            125deg,
+            transparent 0 62%,
+            rgba(66, 214, 197, .035) 62.1%,
+            transparent 62.4%
         ),
 
-        /* Glow */
+        /* Bottom ambient glow */
         radial-gradient(
-            ellipse at 15% 80%,
-            rgba(23, 111, 102, .17),
-            transparent 40%
+            ellipse at 15% 85%,
+            rgba(23, 111, 102, .18),
+            transparent 38%
         );
-
-    background-size:
-        85px 85px,
-        45px 45px,
-        45px 45px,
-        auto;
-
-    transform:
-        translate3d(0, var(--scroll-shift, 0px), 0);
-
-    animation: projectsTechMotion 30s linear infinite;
 }
 
-/* ========================================
-   04. CONTACT - TEAL ATMOSPHERE
-======================================== */
-
+/* 04. CONTACT - TEAL ATMOSPHERE*/
 .contact-section {
     background:
         radial-gradient(
