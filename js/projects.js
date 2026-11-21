@@ -29,8 +29,8 @@ const projects = [
         category: "Personal Project",
         type: "Data Analysis",
         description:
-            "A Power BI dashboard for an FMCG distributor that tracks revenue against changing sales plans and analyzes customers, products and sales team performance.",
-        tools: ["Python", "PostgreSQL", "Power BI"],
+            "An end-to-end project that tracks revenue against changing sales plans and analyzes customers, products and sales team performance of an FMCG distributor.",
+        tools: ["Python", "SQL", "Power BI"],
         github: "https://github.com/LinhNguyenkhanh123/vietdist_analytics",
         readme: "https://raw.githubusercontent.com/LinhNguyenkhanh123/vietdist_analytics/main/README.md"
     },
