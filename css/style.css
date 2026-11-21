@@ -175,10 +175,7 @@ a {
 }
 
 
-/* ========================================
-   4. BUTTONS
-======================================== */
-
+/* 4. BUTTONS */
 .button {
     display: inline-flex;
     align-items: center;
