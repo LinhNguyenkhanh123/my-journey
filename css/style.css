@@ -704,6 +704,90 @@ a {
     stroke-width: 2;
 }
 
+/* ANALYTICS DASHBOARD ARTWORK */
+.project-artwork .dash-frame {
+    fill: rgba(255, 255, 255, .52);
+    stroke: rgba(23, 111, 102, .28);
+    stroke-width: 1;
+}
+
+.project-artwork .dash-card {
+    fill: rgba(255, 255, 255, .72);
+    stroke: rgba(23, 111, 102, .17);
+    stroke-width: .8;
+}
+
+.project-artwork .dash-heading {
+    fill: #176F66;
+}
+
+.project-artwork .dash-subheading,
+.project-artwork .dash-muted {
+    fill: rgba(35, 75, 70, .25);
+}
+
+.project-artwork .dash-value {
+    fill: rgba(23, 111, 102, .65);
+}
+
+.project-artwork .dash-dot {
+    fill: rgba(23, 111, 102, .35);
+}
+
+.project-artwork .dash-trend {
+    fill: none;
+    stroke: #176F66;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.project-artwork .dash-donut-bg {
+    fill: none;
+    stroke: rgba(23, 111, 102, .15);
+    stroke-width: 3;
+}
+
+.project-artwork .dash-donut {
+    fill: none;
+    stroke: #176F66;
+    stroke-width: 3;
+    stroke-linecap: round;
+}
+
+.project-artwork .dash-grid {
+    fill: none;
+    stroke: rgba(23, 111, 102, .13);
+    stroke-width: .8;
+}
+
+.project-artwork .dash-line {
+    fill: none;
+    stroke: #176F66;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.project-artwork .dash-area {
+    fill: rgba(23, 111, 102, .09);
+    stroke: none;
+}
+
+.project-artwork .dash-point {
+    fill: #176F66;
+    stroke: #F5F3ED;
+    stroke-width: 1.5;
+}
+
+.project-artwork .dash-bar {
+    fill: rgba(23, 111, 102, .25);
+}
+
+.project-artwork .dash-bar-highlight {
+    fill: #176F66;
+}
+
 /* Keep text above SVG */
 .project-visual .project-visual-label,
 .project-visual .project-visual-number {
