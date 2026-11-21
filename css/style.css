@@ -1,6 +1,4 @@
-/* ========================================
-   1. DESIGN TOKENS
-======================================== */
+/* 1. DESIGN TOKENS*/
 :root {
     /* Typography */
     --font-main: "Manrope", sans-serif;
@@ -12,7 +10,6 @@
     --text: #183C3B;
     --text-secondary: #526B67;
     --muted: #657875;
-
     --teal: #176F66;
     --teal-dark: #10574F;
     --dark: #183C3B;
@@ -30,9 +27,7 @@
     --line-height-body: 1.7;
 }
 
-/* ========================================
-   2. RESET & GLOBAL
-======================================== */
+/* 2. RESET & GLOBAL*/
 * {
     margin: 0;
     padding: 0;
@@ -97,7 +92,6 @@ a {
 button {
     font: inherit;
 }
-
 button,
 a {
     -webkit-tap-highlight-color: transparent;
