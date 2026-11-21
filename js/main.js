@@ -231,11 +231,10 @@ function initializeProjectCarousels() {
             if (!firstCard) {
                 return grid.clientWidth;
             }
-
             const cardWidth = firstCard.getBoundingClientRect().width;
-            const gap = parseFloat(
-                getComputedStyle(grid).columnGap
-            ) || 0;
+            const styles = getComputedStyle(grid);
+            const gap = parseFloat(styles.gap) || 0;
+        
             return cardWidth + gap;
         }
 
