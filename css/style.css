@@ -377,7 +377,6 @@ a {
 }
 
 /*  6. SECTION HEADINGS*/
-
 .section-heading {
     margin-bottom: 65px;
 }
@@ -392,9 +391,7 @@ a {
     letter-spacing: -1.5px;
 }
 
-/* ========================================
-   7. ABOUT
-======================================== */
+/* 7. ABOUT */
 .about-section {
     background: var(--surface-soft);
 }
@@ -440,11 +437,270 @@ a {
     font-weight: 600;
 }
 
+/* ABOUT - EDUCATION & EXPERIENCE TIMELINE */
+.journey-section {
+    margin-top: 85px;
+}
 
-/* ========================================
-   8. PROJECTS
-======================================== */
+.journey-heading {
+    max-width: 560px;
+    margin-bottom: 55px;
+}
 
+.journey-heading h3 {
+    margin: 10px 0 12px;
+    color: var(--dark);
+    font-family: var(--font-display);
+    font-size: clamp(30px, 4vw, 42px);
+    font-weight: 800;
+    letter-spacing: -.045em;
+}
+
+.journey-heading > p:last-child {
+    max-width: 460px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.journey-group {
+    margin-bottom: 65px;
+}
+
+.journey-group-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.journey-group-title span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(23, 111, 102, .25);
+    border-radius: 50%;
+    color: var(--teal-dark);
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.journey-group-title h4 {
+    color: var(--dark);
+    font-family: var(--font-display);
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: -.025em;
+}
+
+/* TIMELINE */
+
+.journey-timeline {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.journey-timeline::before {
+    position: absolute;
+    top: 12px;
+    bottom: 30px;
+    left: 173px;
+    width: 1px;
+    background: linear-gradient(
+        to bottom,
+        rgba(23, 111, 102, .5),
+        rgba(23, 111, 102, .08)
+    );
+    content: "";
+}
+
+.journey-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 145px 20px minmax(0, 1fr);
+    align-items: start;
+    gap: 18px;
+}
+
+/* DATE */
+.journey-date {
+    padding-top: 23px;
+    text-align: right;
+}
+
+.journey-date span {
+    color: var(--teal-dark);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .08em;
+    line-height: 1.6;
+}
+
+/* TIMELINE MARKER */
+.journey-marker {
+    position: relative;
+    z-index: 1;
+    width: 11px;
+    height: 11px;
+    margin: 26px auto 0;
+    border: 3px solid var(--surface-soft);
+    border-radius: 50%;
+    background: var(--teal);
+    box-shadow: 0 0 0 1px rgba(23, 111, 102, .4);
+}
+
+/* CONTENT CARD */
+.journey-card {
+    position: relative;
+    padding: 25px 29px;
+    border: 1px solid rgba(23, 111, 102, .12);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, .58);
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        border-color .35s ease;
+}
+
+.journey-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(23, 111, 102, .3);
+    box-shadow: 0 14px 35px rgba(30, 65, 59, .07);
+}
+
+.journey-category {
+    display: inline-block;
+    margin-bottom: 11px;
+    color: var(--teal-dark);
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: .15em;
+}
+
+.journey-card h4 {
+    margin-bottom: 7px;
+    color: var(--dark);
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -.025em;
+    line-height: 1.35;
+}
+
+.journey-role {
+    margin-bottom: 13px;
+    color: var(--teal-dark);
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.6;
+}
+
+.journey-card > p:not(.journey-role) {
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.85;
+}
+
+/* MB BANK - KPI HIGHLIGHT */
+.journey-highlight {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 22px;
+    padding: 14px 17px;
+    border-radius: 8px;
+    background: rgba(23, 111, 102, .07);
+}
+
+.journey-highlight strong {
+    color: var(--teal-dark);
+    font-family: var(--font-display);
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -.06em;
+}
+
+.journey-highlight span {
+    max-width: 180px;
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: .04em;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .journey-section {
+        margin-top: 60px;
+    }
+
+    .journey-heading {
+        margin-bottom: 38px;
+    }
+
+    .journey-group {
+        margin-bottom: 48px;
+    }
+
+    .journey-timeline::before {
+        left: 9px;
+    }
+
+    .journey-item {
+        grid-template-columns: 20px minmax(0, 1fr);
+        gap: 13px;
+    }
+
+    .journey-date {
+        grid-column: 2;
+        grid-row: 1;
+        padding-top: 0;
+        margin-bottom: -5px;
+        text-align: left;
+    }
+
+    .journey-marker {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+        margin-top: 3px;
+    }
+
+    .journey-card {
+        grid-column: 2;
+        grid-row: 2;
+        padding: 21px;
+    }
+}
+
+@media (max-width: 480px) {
+    .journey-heading h3 {
+        font-size: 30px;
+    }
+
+    .journey-group-title h4 {
+        font-size: 18px;
+    }
+
+    .journey-card h4 {
+        font-size: 18px;
+    }
+
+    .journey-card {
+        padding: 19px;
+    }
+
+    .journey-highlight strong {
+        font-size: 26px;
+    }
+}
+
+/* 8. PROJECTS */
 .projects-section {
     background: var(--bg);
 }
@@ -503,15 +759,12 @@ a {
     gap: 25px;
     width: 100%;
     min-width: 0;
-
     overflow-x: auto;
     overflow-y: hidden;
-
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
-
     padding: 4px 2px 18px;
     cursor: grab;
     touch-action: pan-x;
