@@ -1642,11 +1642,9 @@ iframe {
         transform: translateY(0);
     }
 }
-
 .hero-content {
     animation: heroFadeUp .85s var(--ease) both;
 }
-
 .hero-dashboard {
     animation: heroFadeUp .95s var(--ease) .16s both;
 }
@@ -1655,15 +1653,203 @@ iframe {
 .reveal {
     opacity: 0;
     transform: translateY(26px);
-
     transition:
         opacity .7s ease,
         transform .7s var(--ease);
-
     transition-delay: var(--reveal-delay, 0ms);
 }
-
 .reveal.is-visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* 15. ABOUT CARDS — INTERACTIVE DETAILS */
+.about-card {
+    isolation: isolate;
+    transition:
+        transform .4s var(--ease),
+        border-color .35s ease,
+        box-shadow .4s ease;
+}
+.about-card::after {
+    width: 48px;
+    height: 3px;
+    transition:
+        width .4s var(--ease),
+        opacity .3s ease;
+}
+.about-card:hover::after {
+    width: 100%;
+    opacity: 1;
+}
+.about-card:hover {
+    background: #FFFFFF;
+    box-shadow: 0 18px 42px rgba(24, 60, 59, .10);
+}
+
+/* Preserve scroll-reveal transform */
+.about-card.reveal.is-visible:hover {
+    transform: translateY(-6px);
+}
+.about-card h3 {
+    transition: color .3s ease;
+}
+.about-card:hover h3 {
+    color: var(--teal);
+}
+
+/* 16. PROJECT CARDS — PREMIUM HOVER */
+.project-card {
+    position: relative;
+    transition:
+        box-shadow .4s ease,
+        border-color .35s ease;
+}
+.project-card:hover {
+    border-color: rgba(23, 111, 102, .45);
+    box-shadow: 0 22px 50px rgba(24, 60, 59, .12);
+}
+
+/* Animated visual background */
+.project-visual::before,
+.project-visual::after {
+    transition:
+        transform .7s var(--ease),
+        border-color .4s ease;
+}
+.project-card:hover .project-visual::before {
+    transform: translate(-14px, 12px) scale(1.08);
+    border-color: rgba(23, 111, 102, .38);
+}
+.project-card:hover .project-visual::after {
+    transform: translate(-8px, 8px) scale(1.1);
+}
+
+/* Project number */
+.project-visual-number {
+    transition:
+        color .4s ease,
+        transform .5s var(--ease);
+}
+.project-card:hover .project-visual-number {
+    color: rgba(24, 60, 59, .38);
+    transform: translateY(-5px);
+}
+
+/* Tool tags */
+.tool-tag {
+    transition:
+        background .25s ease,
+        border-color .25s ease,
+        color .25s ease;
+}
+.project-card:hover .tool-tag {
+    border-color: rgba(23, 111, 102, .14);
+    background: #E7F0EA;
+}
+
+/* Explore button */
+.project-link span {
+    display: inline-block;
+    transition: transform .3s var(--ease);
+}
+.project-link:hover span {
+    transform: translate(4px, -4px);
+}
+
+/*  17. CONTACT — EDITORIAL FINISH */
+.contact-section {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.contact-section::before {
+    position: absolute;
+    z-index: -1;
+    top: -180px;
+    right: -100px;
+    width: 430px;
+    height: 430px;
+    border: 1px solid rgba(255, 255, 255, .10);
+    border-radius: 50%;
+    content: "";
+    pointer-events: none;
+}
+
+.contact-section::after {
+    position: absolute;
+    z-index: -1;
+    top: -110px;
+    right: -30px;
+    width: 290px;
+    height: 290px;
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 50%;
+    content: "";
+    pointer-events: none;
+}
+
+.contact-content h2 {
+    letter-spacing: -.065em;
+    line-height: 1.08;
+}
+
+.contact-content h2 span {
+    display: block;
+    transition: opacity .35s ease;
+}
+
+.contact-content:hover h2 span {
+    opacity: .82;
+}
+
+.contact-links a {
+    position: relative;
+    transition:
+        color .25s ease,
+        transform .3s var(--ease);
+}
+
+.contact-links a:hover {
+    transform: translateY(-4px);
+}
+
+/*  18. MICRO INTERACTIONS */
+.nav-cta,
+.button,
+.carousel-button {
+    transition:
+        transform .3s var(--ease),
+        background .3s ease,
+        color .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+}
+
+.nav-cta:hover {
+    transform: translateY(-2px);
+}
+
+.carousel-button:not(:disabled):hover {
+    transform: translateY(-3px);
+    border-color: var(--teal);
+    background: var(--teal);
+    color: #FFFFFF;
+}
+
+.carousel-button:active {
+    transform: scale(.94);
+}
+
+/* Accessible motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
 }
