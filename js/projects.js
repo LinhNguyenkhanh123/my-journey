@@ -24,15 +24,15 @@ const projects = [
         readme: "https://raw.githubusercontent.com/FTU-Legacy-63/G03/main/README.md"
     },
     {
-        id: "global-sales",
-        title: "Global Sales Performance",
+        id: "vietdist",
+        title: "VietDist Analytics",
         category: "Personal Project",
         type: "Data Analysis",
         description:
-            "A Power BI dashboard that analyzes global business performance by market, product category and time, and provides recommendations on market expansion.",
-        tools: ["Data Analysis", "Power BI"],
-        github: "https://github.com/LinhNguyenkhanh123/global_performance",
-        readme: "https://raw.githubusercontent.com/LinhNguyenkhanh123/global_performance/main/README.md"
+            "A Power BI dashboard for an FMCG distributor that tracks revenue against changing sales plans and analyzes customers, products and sales team performance.",
+        tools: ["Python", "PostgreSQL", "Power BI"],
+        github: "https://github.com/LinhNguyenkhanh123/vietdist_analytics",
+        readme: "https://raw.githubusercontent.com/LinhNguyenkhanh123/vietdist_analytics/main/README.md"
     },
     {
         id: "financial-analysis",
@@ -46,15 +46,26 @@ const projects = [
         readme: "https://raw.githubusercontent.com/LinhNguyenkhanh123/financial_analysis/main/README.md"
     },
     {
-        id: "vietdist",
-        title: "VietDist Analytics",
+        id: "marketing-sales-analysis",
+        title: "Ads Efficiency Analysis",
         category: "Personal Project",
         type: "Data Analysis",
         description:
-            "A Power BI dashboard for an FMCG distributor that tracks revenue against changing sales plans and analyzes customers, products and sales team performance.",
-        tools: ["Python", "PostgreSQL", "Power BI"],
-        github: "https://github.com/LinhNguyenkhanh123/vietdist_analytics",
-        readme: "https://raw.githubusercontent.com/LinhNguyenkhanh123/vietdist_analytics/main/README.md"
+            "A Power BI dashboard analyzing ad spend and sales performance for a fashion brand, identifying wasteful campaigns and high-potential products to improve ROAS.",
+        tools: ["Data Analysis", "Power BI"],
+        github: "https://github.com/LinhNguyenkhanh123/marketing_sales_analysis",
+        readme: "https://raw.githubusercontent.com/LinhNguyenkhanh123/marketing_sales_analysis/main/README.md"
+    },
+    {
+        id: "global-sales",
+        title: "Global Sales Performance",
+        category: "Personal Project",
+        type: "Data Analysis",
+        description:
+            "A Power BI dashboard that analyzes global business performance by market, product category and time, and provides recommendations on market expansion.",
+        tools: ["Data Analysis", "Power BI"],
+        github: "https://github.com/LinhNguyenkhanh123/global_performance",
+        readme: "https://raw.githubusercontent.com/LinhNguyenkhanh123/global_performance/main/README.md"
     },
     {
         id: "shopify-churn",
@@ -66,17 +77,6 @@ const projects = [
         tools: ["Python", "SQL", "DuckDB", "Machine Learning"],
         github: "https://github.com/LinhNguyenkhanh123/churn-prediction",
         readme: "https://raw.githubusercontent.com/LinhNguyenkhanh123/churn-prediction/main/README.md"
-    },
-    {
-        id: "marketing-sales-analysis",
-        title: "Ads Efficiency Analysis",
-        category: "Personal Project",
-        type: "Data Analysis",
-        description:
-            "A Power BI dashboard analyzing ad spend and sales performance for a fashion brand, identifying wasteful campaigns and high-potential products to improve ROAS.",
-        tools: ["Data Analysis", "Power BI"],
-        github: "https://github.com/LinhNguyenkhanh123/marketing_sales_analysis",
-        readme: "https://raw.githubusercontent.com/LinhNguyenkhanh123/marketing_sales_analysis/main/README.md"
     },
     {
         id: "hr-workforce-database",
