@@ -1635,18 +1635,31 @@ iframe {
 /* Dashboard footer */
 .dashboard-footer {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 20px;
-    padding-top: 15px;
+    gap: 10px;
+    margin-top: 23px;
+    padding-top: 17px;
     border-top: 1px solid var(--border);
 }
+
 .dashboard-footer span {
+    position: relative;
     color: var(--teal-dark);
-    font-size: 8px;
+    font-size: 9px;
     font-weight: 800;
-    letter-spacing: 0.7px;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    opacity: .8;
+    transition:
+        color .25s ease,
+        opacity .25s ease;
+}
+
+.dashboard-footer span:hover {
+    color: var(--teal);
+    opacity: 1;
 }
 
 /* Responsive */
