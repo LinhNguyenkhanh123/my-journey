@@ -2848,10 +2848,7 @@ iframe {
     transition: opacity .4s ease;
 }
 
-/* ========================================
-   REDUCED MOTION
-======================================== */
-
+/* REDUCED MOTION */
 @media (prefers-reduced-motion: reduce) {
     .hero-section::before,
     .about-section::before,
