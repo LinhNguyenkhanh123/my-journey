@@ -2857,13 +2857,8 @@ strong,
     }
 }
 
-
-/* =========================================
-   ORGANIC DATA STREAMS — DARK TECH
-========================================= */
-
+/* ORGANIC DATA STREAMS — DARK TECH */
 /* 01. SECTION LAYERS */
-
 .hero,
 .about-section,
 .projects-section,
@@ -2874,7 +2869,6 @@ strong,
 }
 
 /* Keep all content above decorative streams */
-
 .hero-content,
 .hero-aside,
 .hero-bottom,
@@ -2886,7 +2880,6 @@ strong,
 }
 
 /* 02. DATA STREAM BASE */
-
 .data-stream {
     position: absolute;
     z-index: 0;
@@ -2906,7 +2899,6 @@ strong,
 }
 
 /* Soft glow behind each stream */
-
 .data-stream .stream-glow {
     fill: none;
     stroke: rgba(66, 214, 197, .25);
@@ -2917,7 +2909,6 @@ strong,
 }
 
 /* Fine luminous line */
-
 .data-stream .stream-line {
     fill: none;
     stroke: rgba(90, 220, 207, .34);
@@ -3117,12 +3108,43 @@ strong,
     position: absolute;
     top: 0;
     left: 50%;
-
     width: 100vw;
     height: 100%;
-
     margin-left: -50vw;
-
     z-index: 0;
     pointer-events: none;
+}
+/* FOOTER — DARK TECH CONSISTENCY */
+.site-footer {
+    position: relative;
+    background:
+        linear-gradient(
+            135deg,
+            #0B1220 0%,
+            #101D2C 55%,
+            #0B1725 100%
+        );
+    border-top: 1px solid rgba(148, 190, 196, .12);
+    color: var(--text-secondary);
+}
+
+.footer-inner {
+    position: relative;
+    z-index: 1;
+}
+
+.footer-inner p {
+    color: var(--muted);
+}
+
+.footer-inner > span {
+    color: var(--muted);
+}
+
+.site-footer .brand {
+    color: var(--text);
+}
+
+.site-footer .brand span {
+    color: var(--teal);
 }
