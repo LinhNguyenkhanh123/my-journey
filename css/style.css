@@ -3149,23 +3149,21 @@ strong,
     color: var(--teal);
 }
 
-/* ABOUT — LAYERED ORBITAL SYSTEM */
+/* ABOUT — TOP RIGHT ORBITAL SYSTEM */
 .about-orbit {
     position: absolute;
     z-index: 1;
 
-    top: 50%;
-    right: 2%;
+    top: -235px;
+    right: -190px;
 
-    width: min(540px, 52%);
-    height: 540px;
-
-    transform: translateY(-50%);
+    width: 620px;
+    height: 620px;
 
     pointer-events: none;
-    opacity: .72;
+    opacity: .65;
 
-    animation: orbitFloat 28s ease-in-out infinite alternate;
+    animation: orbitFloat 32s ease-in-out infinite alternate;
 }
 
 .about-orbit svg {
@@ -3175,28 +3173,26 @@ strong,
     overflow: visible;
 }
 
-/* Main glow */
+/* Glow */
 .about-orbit .orbit-glow {
     fill: none;
-    stroke: rgba(66, 214, 197, .15);
-    stroke-width: 10;
-    stroke-linecap: round;
-    filter: blur(8px);
+    stroke: rgba(66, 214, 197, .16);
+    stroke-width: 12;
+    filter: blur(9px);
 }
 
 .about-orbit .orbit-glow-inner {
-    stroke: rgba(103, 230, 216, .2);
-    stroke-width: 8;
-    filter: blur(6px);
+    stroke: rgba(103, 230, 216, .18);
+    stroke-width: 9;
+    filter: blur(7px);
 }
 
-/* Orbital lines */
+/* Fine orbital lines */
 .about-orbit .orbit-line {
     fill: none;
     stroke: rgba(103, 230, 216, .3);
-    stroke-width: 1.1;
+    stroke-width: 1.15;
     stroke-linecap: round;
-    stroke-linejoin: round;
 }
 
 .about-orbit .orbit-outer {
@@ -3209,47 +3205,45 @@ strong,
 }
 
 .about-orbit .orbit-layer-3 {
-    stroke: rgba(103, 230, 216, .4);
-    stroke-width: 1.2;
+    stroke: rgba(103, 230, 216, .38);
 }
 
 .about-orbit .orbit-layer-4 {
-    opacity: .38;
+    opacity: .4;
 }
 
 .about-orbit .orbit-layer-5 {
     opacity: .25;
-    stroke-dasharray: 3 7;
 }
 
-/* Orbital nodes */
 .about-orbit .orbit-node {
     fill: #42D6C5;
-    opacity: .65;
+    opacity: .55;
 }
 
 .about-orbit .orbit-node-small {
-    opacity: .35;
+    opacity: .3;
 }
 
-/* Slow movement */
+/* Subtle movement */
 @keyframes orbitFloat {
     from {
-        translate: 0 -6px;
+        transform: translate3d(0, -5px, 0) rotate(-1deg);
     }
 
     to {
-        translate: -8px 7px;
+        transform: translate3d(-8px, 8px, 0) rotate(1deg);
     }
 }
 
 /* Responsive */
 @media (max-width: 768px) {
     .about-orbit {
-        width: 85%;
-        height: 390px;
-        right: -8%;
-        opacity: .38;
+        width: 420px;
+        height: 420px;
+        top: -155px;
+        right: -175px;
+        opacity: .35;
     }
 }
 
