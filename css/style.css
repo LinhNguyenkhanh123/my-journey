@@ -566,7 +566,6 @@ a {
 }
 
 /* TIMELINE */
-
 .journey-timeline {
     position: relative;
     display: flex;
@@ -894,12 +893,6 @@ a {
 .carousel-button:disabled {
     opacity: .35;
     cursor: not-allowed;
-}
-
-.carousel-button:hover:not(:disabled) {
-    background: var(--forest);
-    color: white;
-    border-color: var(--forest);
 }
 
 .carousel-button:disabled {
@@ -2552,249 +2545,6 @@ iframe {
     }
 }
 
-
-/* ========================================
-   DARK TECH - AMBIENT BACKGROUND
-======================================== */
-
-/* Base sections */
-.hero-section,
-.about-section,
-.projects-section,
-.contact-section {
-    position: relative;
-    isolation: isolate;
-    overflow: hidden;
-}
-
-/* Keep content above background effects */
-.hero-section > .container,
-.about-section > .container,
-.projects-section > .container,
-.contact-section > .container {
-    position: relative;
-    z-index: 2;
-}
-
-/* 01. HERO - DIGITAL ORBIT */
-.hero-section {
-    background:
-        radial-gradient(
-            ellipse at 75% 35%,
-            rgba(23, 111, 102, .18),
-            transparent 42%
-        ),
-        linear-gradient(
-            135deg,
-            #0B1220 0%,
-            #101D2C 55%,
-            #0B1725 100%
-        );
-}
-
-.hero-section::before {
-    content: "";
-    position: absolute;
-    z-index: 0;
-    inset: -15%;
-    pointer-events: none;
-    background:
-        /* Orbital rings */
-        radial-gradient(
-            circle at 78% 45%,
-            transparent 0 145px,
-            rgba(66, 214, 197, .13) 146px 147px,
-            transparent 148px 190px,
-            rgba(66, 214, 197, .08) 191px 192px,
-            transparent 193px 240px,
-            rgba(66, 214, 197, .05) 241px 242px,
-            transparent 243px
-        ),
-
-        /* Main glow */
-        radial-gradient(
-            ellipse at 78% 42%,
-            rgba(66, 214, 197, .20),
-            transparent 35%
-        ),
-
-        /* Secondary glow */
-        radial-gradient(
-            ellipse at 12% 85%,
-            rgba(23, 111, 102, .22),
-            transparent 38%
-        ),
-
-        /* Technical grid */
-        linear-gradient(
-            rgba(66, 214, 197, .055) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(66, 214, 197, .055) 1px,
-            transparent 1px
-        );
-
-    background-size:
-        auto,
-        auto,
-        auto,
-        48px 48px,
-        48px 48px;
-
-    transform:
-        translate3d(0, var(--scroll-shift, 0px), 0);
-
-    animation: heroTechMotion 24s ease-in-out infinite alternate;
-}
-
-/* ========================================
-   02. ABOUT - ABSTRACT NETWORK
-======================================== */
-.about-section {
-    background:
-        radial-gradient(
-            ellipse at 15% 30%,
-            rgba(23, 111, 102, .14),
-            transparent 42%
-        ),
-        linear-gradient(
-            135deg,
-            #111D2D 0%,
-            #142333 50%,
-            #101C2A 100%
-        );
-}
-
-.about-section::before {
-    content: "";
-    position: absolute;
-    z-index: 0;
-    inset: -15%;
-    pointer-events: none;
-    background:
-        /* Asymmetric orbital curves */
-        radial-gradient(
-            circle at 88% 55%,
-            transparent 0 125px,
-            rgba(66, 214, 197, .10) 126px 127px,
-            transparent 128px 185px,
-            rgba(66, 214, 197, .06) 186px 187px,
-            transparent 188px
-        ),
-
-        /* Soft ambient light */
-        radial-gradient(
-            ellipse at 85% 70%,
-            rgba(66, 214, 197, .12),
-            transparent 32%
-        ),
-
-        /* Secondary blurred shape */
-        radial-gradient(
-            ellipse at 12% 18%,
-            rgba(52, 116, 153, .10),
-            transparent 35%
-        );
-}
-
-/* 03. PROJECTS - DATA GRID */
-.projects-section {
-    background:
-        radial-gradient(
-            ellipse at 85% 15%,
-            rgba(23, 111, 102, .15),
-            transparent 38%
-        ),
-        linear-gradient(
-            145deg,
-            #0B1220 0%,
-            #101B2A 55%,
-            #0B1421 100%
-        );
-}
-
-
-.projects-section::before {
-    content: "";
-    position: absolute;
-    z-index: 0;
-    inset: -15%;
-    pointer-events: none;
-
-    background:
-        /* Large off-center abstract ring */
-        radial-gradient(
-            circle at 84% 25%,
-            transparent 0 155px,
-            rgba(66, 214, 197, .09) 156px 157px,
-            transparent 158px 225px,
-            rgba(66, 214, 197, .045) 226px 227px,
-            transparent 228px
-        ),
-
-        /* Diagonal light accent */
-        linear-gradient(
-            125deg,
-            transparent 0 62%,
-            rgba(66, 214, 197, .035) 62.1%,
-            transparent 62.4%
-        ),
-
-        /* Bottom ambient glow */
-        radial-gradient(
-            ellipse at 15% 85%,
-            rgba(23, 111, 102, .18),
-            transparent 38%
-        );
-}
-
-/* 04. CONTACT - TEAL ATMOSPHERE*/
-.contact-section {
-    background:
-        radial-gradient(
-            ellipse at 75% 25%,
-            rgba(66, 214, 197, .18),
-            transparent 38%
-        ),
-        linear-gradient(
-            125deg,
-            #102C35 0%,
-            #123F43 55%,
-            #0B222E 100%
-        );
-}
-
-.contact-section::before {
-    content: "";
-    position: absolute;
-    z-index: 0;
-    inset: -15%;
-    pointer-events: none;
-
-    background:
-        radial-gradient(
-            circle at 80% 50%,
-            transparent 0 135px,
-            rgba(66, 214, 197, .15) 136px 137px,
-            transparent 138px 185px,
-            rgba(66, 214, 197, .08) 186px 187px,
-            transparent 188px
-        ),
-
-        radial-gradient(
-            ellipse at 20% 80%,
-            rgba(66, 214, 197, .13),
-            transparent 40%
-        );
-
-    transform:
-        translate3d(0, var(--scroll-shift, 0px), 0);
-
-    animation: contactTechMotion 22s ease-in-out infinite alternate;
-}
-
 /* DYNAMIC ANIMATIONS */
 @keyframes heroTechMotion {
     from {
@@ -3107,8 +2857,13 @@ strong,
     }
 }
 
-/* NEW BACKGROUND — ABSTRACT DATA FLOW + ORBITAL RINGS */
-/* Shared section setup */
+
+/* ==========================================
+   DARK TECH — AMBIENT BACKGROUND V2
+   Abstract Data Flow + Orbital Rings
+========================================== */
+
+/* SECTION FOUNDATION */
 .hero-section,
 .about-section,
 .projects-section,
@@ -3118,27 +2873,35 @@ strong,
     overflow: hidden;
 }
 
-/* Keep content above decorative layers */
+/* Keep all section content above background */
 .hero-section > .container,
 .about-section > .container,
 .projects-section > .container,
 .contact-section > .container {
     position: relative;
-    z-index: 2;
+    z-index: 3;
 }
 
-/* 01. BASE AMBIENT BACKGROUNDS */
+/* ==========================================
+   01. AMBIENT GRADIENT
+========================================== */
+
 .hero-section {
     background:
         radial-gradient(
-            ellipse at 78% 35%,
-            rgba(66, 214, 197, .09),
-            transparent 42%
+            ellipse 620px 480px at 82% 38%,
+            rgba(66, 214, 197, .15),
+            transparent 72%
+        ),
+        radial-gradient(
+            ellipse 480px 350px at 8% 92%,
+            rgba(38, 104, 132, .13),
+            transparent 75%
         ),
         linear-gradient(
             135deg,
             #0B1220 0%,
-            #101D2C 55%,
+            #101D2C 52%,
             #0B1725 100%
         );
 }
@@ -3146,9 +2909,14 @@ strong,
 .about-section {
     background:
         radial-gradient(
-            ellipse at 18% 40%,
-            rgba(23, 111, 102, .10),
-            transparent 45%
+            ellipse 580px 420px at 12% 35%,
+            rgba(66, 214, 197, .105),
+            transparent 72%
+        ),
+        radial-gradient(
+            ellipse 420px 320px at 92% 85%,
+            rgba(38, 104, 132, .12),
+            transparent 72%
         ),
         linear-gradient(
             135deg,
@@ -3161,9 +2929,14 @@ strong,
 .projects-section {
     background:
         radial-gradient(
-            ellipse at 85% 20%,
-            rgba(66, 214, 197, .07),
-            transparent 42%
+            ellipse 650px 420px at 88% 18%,
+            rgba(66, 214, 197, .12),
+            transparent 72%
+        ),
+        radial-gradient(
+            ellipse 500px 360px at 12% 90%,
+            rgba(38, 104, 132, .12),
+            transparent 75%
         ),
         linear-gradient(
             145deg,
@@ -3176,19 +2949,27 @@ strong,
 .contact-section {
     background:
         radial-gradient(
-            ellipse at 75% 30%,
-            rgba(66, 214, 197, .11),
-            transparent 42%
+            ellipse 650px 430px at 82% 30%,
+            rgba(66, 214, 197, .17),
+            transparent 72%
+        ),
+        radial-gradient(
+            ellipse 420px 350px at 8% 100%,
+            rgba(38, 104, 132, .16),
+            transparent 75%
         ),
         linear-gradient(
             125deg,
-            #102C35 0%,
-            #123F43 55%,
-            #0B222E 100%
+            #102630 0%,
+            #123940 55%,
+            #0B202D 100%
         );
 }
 
-/* 02. ORBITAL RINGS Sparse elliptical structures */
+/* ==========================================
+   02. ORBITAL RINGS
+========================================== */
+
 .hero-section::before,
 .about-section::before,
 .projects-section::before,
@@ -3198,93 +2979,79 @@ strong,
     z-index: 0;
     inset: 0;
     pointer-events: none;
-
     background-repeat: no-repeat;
-
-    opacity: .65;
-
-    animation: orbitalDrift 38s ease-in-out infinite alternate;
+    animation: orbitalFloat 30s ease-in-out infinite alternate;
 }
 
-/* Hero — large orbital structure on the right */
+/* HERO — prominent but sparse orbit */
 .hero-section::before {
     background-image:
         radial-gradient(
-            ellipse 260px 170px at 78% 42%,
-            transparent 69.5%,
-            rgba(66, 214, 197, .16) 69.8%,
-            rgba(66, 214, 197, .16) 70.1%,
-            transparent 70.4%
+            ellipse 270px 180px at 80% 42%,
+            transparent 69%,
+            rgba(66, 214, 197, .24) 69.5%,
+            transparent 70.2%
         ),
         radial-gradient(
-            ellipse 360px 235px at 78% 42%,
-            transparent 74.5%,
-            rgba(66, 214, 197, .09) 74.8%,
-            rgba(66, 214, 197, .09) 75.1%,
-            transparent 75.4%
+            ellipse 390px 255px at 80% 42%,
+            transparent 74%,
+            rgba(66, 214, 197, .13) 74.5%,
+            transparent 75.2%
         );
-
-    background-size: 100% 100%;
 }
 
-/* About — smaller off-center orbital structure */
+/* ABOUT — subtle orbit on the right */
 .about-section::before {
     background-image:
         radial-gradient(
-            ellipse 220px 145px at 90% 55%,
-            transparent 70%,
-            rgba(66, 214, 197, .11) 70.3%,
-            transparent 70.7%
+            ellipse 235px 155px at 92% 48%,
+            transparent 69%,
+            rgba(66, 214, 197, .17) 69.5%,
+            transparent 70.2%
         ),
         radial-gradient(
-            ellipse 310px 205px at 90% 55%,
+            ellipse 345px 225px at 92% 48%,
             transparent 75%,
-            rgba(66, 214, 197, .065) 75.3%,
-            transparent 75.7%
+            rgba(66, 214, 197, .09) 75.5%,
+            transparent 76.2%
         );
-
-    background-size: 100% 100%;
 }
 
-/* Projects — subtle orbit near upper-right */
+/* PROJECTS — upper-right orbit */
 .projects-section::before {
     background-image:
         radial-gradient(
-            ellipse 230px 150px at 88% 22%,
-            transparent 71%,
-            rgba(66, 214, 197, .10) 71.3%,
-            transparent 71.7%
+            ellipse 255px 165px at 90% 17%,
+            transparent 69%,
+            rgba(66, 214, 197, .18) 69.5%,
+            transparent 70.2%
         ),
         radial-gradient(
-            ellipse 330px 220px at 88% 22%,
-            transparent 76%,
-            rgba(66, 214, 197, .055) 76.3%,
-            transparent 76.7%
+            ellipse 370px 240px at 90% 17%,
+            transparent 75%,
+            rgba(66, 214, 197, .10) 75.5%,
+            transparent 76.2%
         );
-
-    background-size: 100% 100%;
 }
 
-/* Contact — quiet orbital accent */
+/* CONTACT — quiet white-teal orbit */
 .contact-section::before {
     background-image:
         radial-gradient(
-            ellipse 240px 155px at 88% 42%,
-            transparent 70%,
-            rgba(255, 255, 255, .12) 70.3%,
-            transparent 70.7%
+            ellipse 270px 175px at 88% 42%,
+            transparent 69%,
+            rgba(255, 255, 255, .19) 69.5%,
+            transparent 70.2%
         ),
         radial-gradient(
-            ellipse 350px 230px at 88% 42%,
-            transparent 76%,
-            rgba(255, 255, 255, .065) 76.3%,
-            transparent 76.7%
+            ellipse 390px 255px at 88% 42%,
+            transparent 75%,
+            rgba(255, 255, 255, .10) 75.5%,
+            transparent 76.2%
         );
-
-    background-size: 100% 100%;
 }
 
-/* 03. ABSTRACT DATA FLOW Long, subtle flowing curves */
+/* 03. ABSTRACT DATA FLOW */
 .hero-section::after,
 .about-section::after,
 .projects-section::after,
@@ -3294,88 +3061,78 @@ strong,
     z-index: 1;
     inset: 0;
     pointer-events: none;
-
     background-repeat: no-repeat;
-
-    opacity: .5;
-
-    animation: dataFlowDrift 32s ease-in-out infinite alternate;
+    animation: dataFlowFloat 26s ease-in-out infinite alternate;
 }
 
-/* Hero — flowing lines behind the content */
+/* HERO — long curves near lower-left */
 .hero-section::after {
     background-image:
         radial-gradient(
-            ellipse 680px 220px at 12% 88%,
-            transparent 68.5%,
-            rgba(66, 214, 197, .10) 68.8%,
-            transparent 69.2%
+            ellipse 760px 250px at 5% 95%,
+            transparent 69%,
+            rgba(66, 214, 197, .14) 69.5%,
+            transparent 70.2%
         ),
         radial-gradient(
-            ellipse 760px 260px at 12% 88%,
+            ellipse 900px 310px at 5% 95%,
             transparent 76%,
-            rgba(66, 214, 197, .055) 76.3%,
-            transparent 76.7%
+            rgba(66, 214, 197, .08) 76.5%,
+            transparent 77.2%
         );
 }
 
-/* About — flowing curves from the left */
+/* ABOUT — flowing curve across the left */
 .about-section::after {
     background-image:
         radial-gradient(
-            ellipse 650px 230px at 5% 20%,
+            ellipse 700px 250px at 8% 22%,
             transparent 70%,
-            rgba(66, 214, 197, .075) 70.3%,
-            transparent 70.7%
+            rgba(66, 214, 197, .12) 70.5%,
+            transparent 71.2%
         );
-
-    opacity: .38;
 }
 
-/* Projects — long curves near the bottom */
+/* PROJECTS — curves beneath the cards */
 .projects-section::after {
     background-image:
         radial-gradient(
-            ellipse 850px 250px at 75% 100%,
-            transparent 72%,
-            rgba(66, 214, 197, .075) 72.3%,
-            transparent 72.7%
+            ellipse 900px 280px at 72% 100%,
+            transparent 70%,
+            rgba(66, 214, 197, .12) 70.5%,
+            transparent 71.2%
         );
-
-    opacity: .4;
 }
 
-/* Contact — gentle flowing accent */
+/* CONTACT — wide flowing accent */
 .contact-section::after {
     background-image:
         radial-gradient(
-            ellipse 620px 210px at 15% 95%,
+            ellipse 700px 230px at 12% 100%,
             transparent 70%,
-            rgba(255, 255, 255, .08) 70.3%,
-            transparent 70.7%
+            rgba(255, 255, 255, .11) 70.5%,
+            transparent 71.2%
         );
-
-    opacity: .35;
 }
 
-/* 04. SLOW MOTION */
-@keyframes orbitalDrift {
+/* 04. DYNAMIC MOVEMENT */
+@keyframes orbitalFloat {
     from {
         transform: translate3d(0, 0, 0) rotate(-1deg);
     }
 
     to {
-        transform: translate3d(-12px, 8px, 0) rotate(1deg);
+        transform: translate3d(-14px, 9px, 0) rotate(1deg);
     }
 }
 
-@keyframes dataFlowDrift {
+@keyframes dataFlowFloat {
     from {
         transform: translate3d(0, 0, 0);
     }
 
     to {
-        transform: translate3d(14px, -8px, 0);
+        transform: translate3d(18px, -10px, 0);
     }
 }
 
@@ -3385,18 +3142,14 @@ strong,
     .about-section::before,
     .projects-section::before,
     .contact-section::before {
-        opacity: .4;
+        opacity: .65;
     }
 
     .hero-section::after,
     .about-section::after,
     .projects-section::after,
     .contact-section::after {
-        opacity: .3;
-    }
-
-    .hero-section::before {
-        background-position: 25% center;
+        opacity: .55;
     }
 }
 
