@@ -3046,11 +3046,63 @@ strong,
     }
 
     .journey-date {
-        padding-top: 26px;
+        padding-top: 23px;
         text-align: right;
     }
 
     .journey-marker {
         margin-top: 26px;
+    }
+}
+
+/* ABOUT — BODY TEXT CONTRAST FIX */
+.journey-heading > p:last-child {
+    color: #C5D2DE;
+    font-size: 15px;
+    line-height: 1.85;
+}
+
+.journey-card > p:not(.journey-role) {
+    color: #C5D2DE;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+/* BUTTON — DARK TEXT ON TEAL BACKGROUND */
+.button-primary {
+    color: #0B1220;
+}
+
+.button-primary:hover {
+    color: #EAF2F5;
+}
+
+/* CONTACT — COMPACT SPACING */
+.contact-actions {
+    margin-top: 24px;
+    gap: 12px;
+}
+
+.copy-feedback {
+    margin-top: 8px;
+}
+
+.contact-mailto {
+    margin-top: 3px;
+    font-size: 11px;
+}
+
+.contact-links {
+    margin-top: 30px;
+    padding-top: 18px;
+    gap: 28px;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+    .contact-links {
+        margin-top: 28px;
+        padding-top: 16px;
+        gap: 22px;
     }
 }
