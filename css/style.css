@@ -598,8 +598,11 @@ a {
 
 /* DATE */
 .journey-date {
-    padding-top: 23px;
-    text-align: right;
+    color: #B8C8D5;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .8px;
+    line-height: 1.6;
 }
 
 .journey-date span {
@@ -643,12 +646,11 @@ a {
 }
 
 .journey-category {
-    display: inline-block;
-    margin-bottom: 11px;
-    color: var(--teal-dark);
-    font-size: 9px;
+    color: #63DCCB;
+    font-size: 10px;
     font-weight: 800;
-    letter-spacing: .15em;
+    letter-spacing: 1.5px;
+    line-height: 1.5;
 }
 
 .journey-card h4 {
@@ -662,11 +664,10 @@ a {
 }
 
 .journey-role {
-    margin-bottom: 13px;
-    color: var(--teal-dark);
-    font-size: 13px;
-    font-weight: 700;
-    line-height: 1.6;
+    color: #C7D4DF;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.65;
 }
 
 .journey-card > p:not(.journey-role) {
@@ -3042,4 +3043,20 @@ strong,
     background: rgba(66, 214, 197, .12);
     border-color: rgba(66, 214, 197, .3);
     color: #DCE8EF;
+}
+
+/*  ALIGN DATE WITH MARKER */
+@media (min-width: 769px) {
+    .journey-item {
+        align-items: start;
+    }
+
+    .journey-date {
+        padding-top: 26px;
+        text-align: right;
+    }
+
+    .journey-marker {
+        margin-top: 26px;
+    }
 }
