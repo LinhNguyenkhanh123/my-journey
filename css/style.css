@@ -3046,19 +3046,19 @@ strong,
 /* 08. RESPONSIVE */
 @media (max-width: 768px) {
     .data-stream {
-        opacity: .28;
+        opacity: .22;
     }
 
     .data-stream-hero {
-        opacity: .42;
+        opacity: .3;
     }
 
     .data-stream-projects {
-        opacity: .2;
+        opacity: .18;
     }
 
     .data-stream-contact {
-        opacity: .3;
+        opacity: .25;
     }
 }
 
