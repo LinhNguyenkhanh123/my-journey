@@ -3225,6 +3225,23 @@ strong,
     opacity: .3;
 }
 
+.about-orbit .orbit-particle {
+    fill: #72E8DA;
+    opacity: .35;
+    filter: drop-shadow(0 0 3px rgba(66, 214, 197, .55));
+}
+
+.about-orbit .particle-bright {
+    fill: #A0F5EA;
+    opacity: .72;
+    filter: drop-shadow(0 0 5px rgba(66, 214, 197, .8));
+}
+
+.about-orbit .particle-tiny {
+    opacity: .2;
+    filter: drop-shadow(0 0 2px rgba(66, 214, 197, .4));
+}
+
 /* Subtle movement */
 @keyframes orbitFloat {
     from {
