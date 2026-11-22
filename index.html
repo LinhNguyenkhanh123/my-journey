@@ -165,38 +165,46 @@
             </div>
             <!-- ABOUT ORBITAL STREAMS -->
             <div class="about-orbit" aria-hidden="true">
-                <svg viewBox="0 0 1200 700"
-                     preserveAspectRatio="xMidYMid slice">
+                <svg viewBox="0 0 700 600"
+                     preserveAspectRatio="xMidYMid meet">
             
-                    <!-- Main orbital glow -->
+                    <!-- Outer orbital layer -->
                     <path class="orbit-glow"
-                        d="M 1180 40
-                           C 920 20, 760 170, 790 340
-                           C 820 510, 1010 620, 1190 650"/>
+                        d="M 590 85 C 470 5, 230 30, 115 190
+                           C 25 315, 105 475, 280 520"/>
             
-                    <!-- Main orbital line -->
-                    <path class="orbit-line"
-                        d="M 1180 40
-                           C 920 20, 760 170, 790 340
-                           C 820 510, 1010 620, 1190 650"/>
+                    <path class="orbit-line orbit-outer"
+                        d="M 590 85 C 470 5, 230 30, 115 190
+                           C 25 315, 105 475, 280 520"/>
             
-                    <!-- Secondary orbital glow -->
-                    <path class="orbit-glow orbit-secondary"
-                        d="M 1120 120
-                           C 940 80, 840 210, 860 350
-                           C 880 480, 1020 550, 1160 590"/>
+                    <!-- Second orbital layer -->
+                    <path class="orbit-line orbit-layer-2"
+                        d="M 555 125 C 445 55, 270 70, 175 200
+                           C 95 310, 155 430, 300 475"/>
             
-                    <!-- Secondary orbital line -->
-                    <path class="orbit-line orbit-secondary"
-                        d="M 1120 120
-                           C 940 80, 840 210, 860 350
-                           C 880 480, 1020 550, 1160 590"/>
+                    <!-- Third orbital layer -->
+                    <path class="orbit-glow orbit-glow-inner"
+                        d="M 510 165 C 415 105, 295 115, 220 220
+                           C 155 310, 205 405, 320 435"/>
             
-                    <!-- Fine orbital accent -->
-                    <path class="orbit-line orbit-tertiary"
-                        d="M 1050 -20
-                           C 850 100, 720 260, 760 430
-                           C 790 550, 930 640, 1080 700"/>
+                    <path class="orbit-line orbit-layer-3"
+                        d="M 510 165 C 415 105, 295 115, 220 220
+                           C 155 310, 205 405, 320 435"/>
+            
+                    <!-- Fourth orbital layer -->
+                    <path class="orbit-line orbit-layer-4"
+                        d="M 470 205 C 390 155, 310 165, 260 240
+                           C 210 310, 245 375, 335 400"/>
+            
+                    <!-- Fifth orbital accent -->
+                    <path class="orbit-line orbit-layer-5"
+                        d="M 430 245 C 370 210, 325 215, 290 260
+                           C 260 305, 285 345, 350 365"/>
+            
+                    <!-- Subtle orbital nodes -->
+                    <circle class="orbit-node" cx="115" cy="190" r="2.5"/>
+                    <circle class="orbit-node orbit-node-small"
+                            cx="510" cy="165" r="2"/>
             
                 </svg>
             </div>
