@@ -2928,24 +2928,31 @@ strong,
 
 /* 03. HERO — MAIN DATA STREAM */
 .data-stream-hero {
-    opacity: .78;
-    transform: translate3d(0, 0, 0);
-    animation: heroStreamFloat 22s ease-in-out infinite alternate;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: auto;
+    width: 100vw;
+    height: 100%;
+    margin-left: -50vw;
+    opacity: .38;
+    pointer-events: none;
+    animation: heroStreamFloat 28s ease-in-out infinite alternate;
 }
 
 .data-stream-hero .stream-glow {
-    stroke: rgba(66, 214, 197, .28);
-    stroke-width: 17;
-    filter: blur(11px);
+    stroke: rgba(66, 214, 197, .13);
+    stroke-width: 10;
+    filter: blur(12px);
 }
 
 .data-stream-hero .stream-line {
-    stroke: rgba(103, 230, 216, .42);
-    stroke-width: 1.6;
+    stroke: rgba(103, 230, 216, .22);
+    stroke-width: 1;
 }
 
 .data-stream-hero .stream-secondary {
-    opacity: .55;
+    opacity: .3;
 }
 
 /* 04. ABOUT — SUBTLE FLOW */
@@ -3000,13 +3007,12 @@ strong,
 }
 
 /* 07. SLOW ORGANIC MOTION */
-
 @keyframes heroStreamFloat {
     from {
-        transform: translate3d(0, -8px, 0);
+        transform: translate3d(0, -4px, 0);
     }
     to {
-        transform: translate3d(-15px, 12px, 0);
+        transform: translate3d(0, 5px, 0);
     }
 }
 
@@ -3062,4 +3068,50 @@ strong,
         animation: none !important;
         transform: none !important;
     }
+}
+
+/* CONTACT — DARK AMBIENT BACKGROUND */
+.contact-section {
+    background:
+        radial-gradient(
+            ellipse at 78% 35%,
+            rgba(66, 214, 197, .09),
+            transparent 42%
+        ),
+        linear-gradient(
+            135deg,
+            #0B1220 0%,
+            #111D2D 55%,
+            #0B1725 100%
+        );
+
+    color: var(--text);
+}
+
+/* Contact typography */
+.contact-section h2 {
+    color: var(--text);
+}
+
+.contact-section h2 span {
+    color: var(--teal);
+}
+
+.contact-section p {
+    color: var(--text-secondary);
+}
+
+.contact-section .eyebrow {
+    color: var(--teal);
+}
+
+/* Contact links */
+.contact-section .contact-links a,
+.contact-section .contact-mailto {
+    color: var(--text-secondary);
+}
+
+.contact-section .contact-links a:hover,
+.contact-section .contact-mailto:hover {
+    color: var(--teal);
 }
